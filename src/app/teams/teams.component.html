@@ -1,0 +1,8 @@
+<h2>Teams</h2>
+<ul class="teams">
+  <li *ngFor="let team of teams">
+  	<a routerLink="/detail/{{team.id}}">
+    	<span *ngFor="let pokemon of team.pokemon_ids" [class]="pokemon | lowercase" [class.sprite-xyicons]="pokemon"></span>
+  	</a>
+  </li>
+</ul>

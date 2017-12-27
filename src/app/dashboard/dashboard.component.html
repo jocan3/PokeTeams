@@ -1,0 +1,8 @@
+<h3>Top Teams</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let team of teams" class="col-1-4" routerLink="/detail/{{team.id}}">
+    <div class="module team">
+      <span *ngFor="let pokemon of team.pokemon_ids" [class]="pokemon | lowercase" [class.sprite-xyicons]="pokemon"></span>
+    </div>
+  </a>
+</div>

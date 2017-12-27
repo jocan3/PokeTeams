@@ -1,0 +1,19 @@
+<div *ngIf="team">
+<h2>Selected Team Details</h2>
+<div>
+  <div>
+    <span *ngFor="let pokemon of team.pokemon_ids" [class]="pokemon | lowercase" [class.sprite-xyicons]="pokemon"></span>
+  </div>
+  <label>Relevance:
+    <input [(ngModel)]="team.relevance" placeholder="relevance">
+  </label>
+  <label>Usage count:
+    <input [(ngModel)]="team.usage_count" placeholder="usage_count">
+  </label>
+  <label>Win count:
+    <input [(ngModel)]="team.win_count" placeholder="win_count">
+  </label>
+</div>
+</div>
+
+<button (click)="goBack()">go back</button>

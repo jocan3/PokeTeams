@@ -1,8 +1,38 @@
-<h2>Teams</h2>
-<ul class="teams">
-  <li *ngFor="let team of teams">
-  	<a routerLink="/detail/{{team.id}}">
-    	<span *ngFor="let pokemon of team.pokemon_ids" [class]="pokemon | lowercase" [class.sprite-xyicons]="pokemon"></span>
-  	</a>
-  </li>
-</ul>
+<h2>Trending teams from {{startDate}} to {{endDate}}</h2>
+
+<mat-spinner style="margin:0 auto;" *ngIf="!teams"></mat-spinner>
+<div class="table-container mat-elevation-z8" [hidden]="!teams">
+  <mat-table #table [dataSource]="dataSource" matSort>
+    <!-- Position Column -->
+    <ng-container matColumnDef="team">
+      <mat-header-cell *matHeaderCellDef> Team </mat-header-cell>
+      <mat-cell *matCellDef="let element"> 
+		<mat-grid-list cols="3">
+		  <mat-grid-tile *ngFor="let pokemon of element.pokemon_ids"><span [class]="pokemon | lowercase" [class.sprite-xyicons]="pokemon"></span></mat-grid-tile>
+		</mat-grid-list>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="usage_count">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Usage </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.usage_count}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="win_count">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Win </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.win_count}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="relevance">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Relevance </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.relevance | number : '1.4'}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+    <mat-paginator #paginator
+                 [pageSize]="10"
+                 [pageSizeOptions]="[ 10, 40, 120]">
+  </mat-paginator>
+</div>

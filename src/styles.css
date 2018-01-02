@@ -1,10 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 
 
 .sprite-xyicons {
 	display: inline-block;
     background-image: url(/assets/images/smicons.png);
+    transform: scale(1.5);
+    image-rendering: -moz-crisp-edges;
+    image-rendering: pixelated;
 }
 .sprite-xyicons.poipole {
     width: 24px;
@@ -5085,3 +5088,13 @@
 .sprite-xyicons.sandslash-alola{background-position: -840px -900px;width:30px;height:30px;}
 .sprite-xyicons.greninja-ash{background-position: -270px -900px;width:30px;height:30px;}
 
+
+@media only screen and (max-width: 500px) {
+    .sprite-xyicons {
+        display: inline-block;
+        background-image: url(/assets/images/smicons.png);
+        transform: scale(0.5);
+        image-rendering: -moz-crisp-edges;
+        image-rendering: pixelated;
+    }
+}

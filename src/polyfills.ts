@@ -1,3 +1,12 @@
+import 'core-js/es6/reflect';
+import '../node_modules/hammerjs';
+import 'web-animations-js';
+
+
+/**  Copyright 2017 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license */
+
 /**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.

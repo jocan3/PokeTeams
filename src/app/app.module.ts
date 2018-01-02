@@ -9,6 +9,10 @@ import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { TeamService } from './team.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import {MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule,  
+  MatButtonModule, MatGridListModule, MatTableModule, MatProgressSpinnerModule, 
+    MatPaginatorModule, MatSortModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,18 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule,
+    MatGridListModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [TeamService],
   bootstrap: [AppComponent]

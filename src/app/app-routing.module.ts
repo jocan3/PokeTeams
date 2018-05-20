@@ -8,6 +8,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 const routes: Routes = [
   { path: '', redirectTo: '/teams', pathMatch: 'full' },
   { path: 'teams', component: TeamsComponent },
+  { path: 'teams/:startDate/:endDate', component: TeamsComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: TeamDetailComponent }
 ];

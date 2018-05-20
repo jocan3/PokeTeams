@@ -1,13 +1,17 @@
-<h2>Trending teams from {{startDate}} to {{endDate}}</h2>
-
-<mat-spinner style="margin:0 auto;" *ngIf="!teams"></mat-spinner>
-<div class="table-container mat-elevation-z8" [hidden]="!teams">
-  <mat-table #table [dataSource]="dataSource" matSort>
+<p>Trending teams from <b>{{startDate}}</b> to <b>{{endDate}}</b></p>
+<mat-spinner style="margin:0 auto;" *ngIf="loading"></mat-spinner>
+<div class="table-container mat-elevation-z8" [hidden]="loading">
+	<div class="teams-search-input-container">
+		<mat-form-field class="teams-search-input">
+		  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+		</mat-form-field>
+	</div>
+  <mat-table #table [dataSource]="dataSource" matSort matSortActive="relevance" matSortDirection="desc">
     <!-- Position Column -->
     <ng-container matColumnDef="team">
       <mat-header-cell *matHeaderCellDef> Team </mat-header-cell>
       <mat-cell *matCellDef="let element"> 
-		<mat-grid-list cols="3">
+		<mat-grid-list cols="3" (click)="seeBattleIds(element.battle_ids)">
 		  <mat-grid-tile *ngFor="let pokemon of element.pokemon_ids"><span [class]="pokemon | lowercase" [class.sprite-xyicons]="pokemon"></span></mat-grid-tile>
 		</mat-grid-list>
       </mat-cell>
@@ -22,9 +26,14 @@
       <mat-cell *matCellDef="let element"> {{element.win_count}} </mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="users_count">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Users </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.users_count}} </mat-cell>
+    </ng-container>
+
     <!-- Symbol Column -->
     <ng-container matColumnDef="relevance">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Relevance </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header > Relevance </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{ element.relevance | number : '1.4'}} </mat-cell>
     </ng-container>
 

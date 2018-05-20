@@ -4,7 +4,7 @@
 
 .sprite-xyicons {
 	display: inline-block;
-    background-image: url(/assets/images/smicons.png);
+    background-image: url(assets/images/smicons.png);
     transform: scale(1.5);
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
@@ -5092,7 +5092,7 @@
 @media only screen and (max-width: 500px) {
     .sprite-xyicons {
         display: inline-block;
-        background-image: url(/assets/images/smicons.png);
+        background-image: url(assets/images/smicons.png);
         transform: scale(0.5);
         image-rendering: -moz-crisp-edges;
         image-rendering: pixelated;

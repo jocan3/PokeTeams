@@ -10,11 +10,11 @@ import { catchError, map, tap } from 'rxjs/operators';
 @Injectable()
 export class TeamService {
   
-	private teamsUrl = 'https://s5pze687i8.execute-api.us-east-2.amazonaws.com/test/GetPokemonSDTeamTrendReport?format=gen7vgc2018';  // URL to web api
+	private teamsUrl = 'https://wm6zl46tuf.execute-api.us-east-1.amazonaws.com/prod/GetPokemonSDTeamTrendReport?format=gen7vgc2018';  // URL to web api
 	private teamsUrl2 = 'https://jsonplaceholder.typicode.com/users';
 	constructor(private http: HttpClient) { }
 
-	getTeams(startDate: string, endDate: string): Observable<TrendReport> { 
+	getTeams(startDate: number, endDate: number): Observable<TrendReport> { 
 		return this.http.get<TrendReport>(this.teamsUrl + '&startDate='+ startDate +'&endDate='+ endDate)
 			.pipe(
 		      catchError(this.handleError<TrendReport>('getTeams'))

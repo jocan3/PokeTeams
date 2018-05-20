@@ -1,12 +1,25 @@
 .table-container {
 }
 
-h2 {
+p {
   text-align: center;
-  font-weight: normal;
 }
 
 .mat-sort-header-container {
-  display:flex;
   justify-content:center;
+}
+
+.teams-search-input {
+  width: 33%;
+}
+
+.teams-search-input-container {
+  text-align: center;
+}
+
+
+@media only screen and (max-width: 500px) {
+  .teams-search-input {
+    width: 90%;
+  }
 }

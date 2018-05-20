@@ -16,6 +16,7 @@ import {MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule,
     MatPaginatorModule, MatSortModule, MatDialogModule, MatFormFieldModule, MatInputModule,
       MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 import { FiltersComponent } from './filters/filters.component';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FiltersComponent } from './filters/filters.component';
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    DeviceDetectorModule.forRoot()
   ],
   providers: [TeamService],
   bootstrap: [AppComponent]

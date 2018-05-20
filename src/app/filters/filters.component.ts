@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatDatepicker, MatFormField, MatInput, MatButton } from '@angular/material';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-filters',
@@ -16,7 +17,7 @@ export class FiltersComponent implements OnInit {
   selectedStartDate = new Date();
   selectedEndDate = new Date();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private deviceService: DeviceDetectorService) { }
   
   ngOnInit() {
     var dayOfMonth = this.selectedStartDate.getDate();
@@ -27,10 +28,12 @@ export class FiltersComponent implements OnInit {
     return (this.selectedEndDate && this.selectedStartDate && (this.selectedStartDate <= this.selectedEndDate));
   }
 
+  isMobile(): boolean {
+    var deviceInfo = this.deviceService.getDeviceInfo();
+    return deviceInfo.device =='android' || deviceInfo.device == 'iphone';
+  }
+
   onSubmit(form: NgForm) {
-    console.log(this.validDates());
-    console.log(this.selectedStartDate <= this.selectedEndDate);
-    console.log(form);
     var startDate = this.selectedStartDate.getTime()/1000;
     var endDate = this.selectedEndDate.getTime()/1000;
     this.snav.toggle();

@@ -22,4 +22,10 @@ p {
   .teams-search-input {
     width: 90%;
   }
+  .teams-sprites-column {
+    flex: 1 1 40% !important;
+  }
+  .users-column {
+    display: none;
+  }
 }

@@ -9,8 +9,8 @@
   <mat-table #table [dataSource]="dataSource" matSort matSortActive="relevance" matSortDirection="desc">
     <!-- Position Column -->
     <ng-container matColumnDef="team">
-      <mat-header-cell *matHeaderCellDef> Team </mat-header-cell>
-      <mat-cell *matCellDef="let element"> 
+      <mat-header-cell *matHeaderCellDef class="teams-sprites-column"> Team </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="teams-sprites-column"> 
 		<mat-grid-list cols="3" (click)="seeBattleIds(element.battle_ids)">
 		  <mat-grid-tile *ngFor="let pokemon of element.pokemon_ids"><span [class]="pokemon | lowercase" [class.sprite-xyicons]="pokemon"></span></mat-grid-tile>
 		</mat-grid-list>
@@ -27,8 +27,8 @@
     </ng-container>
 
     <ng-container matColumnDef="users_count">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Users </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.users_count}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="users-column"> Users </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="users-column"> {{element.users_count}} </mat-cell>
     </ng-container>
 
     <!-- Symbol Column -->

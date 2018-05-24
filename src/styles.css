@@ -5093,7 +5093,7 @@
     .sprite-xyicons {
         display: inline-block;
         background-image: url(assets/images/smicons.png);
-        transform: scale(0.5);
+        transform: scale(2);
         image-rendering: -moz-crisp-edges;
         image-rendering: pixelated;
     }

@@ -2,7 +2,7 @@ import { Pokemon } from './pokemon';
 import { Team } from './team';
 
 export const TEAMS: Team[] =[
-   {
+  /* {
       "id": 1,
       "team": "Gothitelle,Marowak-Alola,Mawile,Rotom-Wash,Scrafty,tapuBulu",
       "usage_count": 7,
@@ -237,5 +237,5 @@ export const TEAMS: Team[] =[
         "Tornadus"
       ],
       "relevance": 0.00018667164457718873
-    }
+    }*/
 ];

@@ -6,19 +6,36 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Format } from './format.model';
 
 @Injectable()
 export class TeamService {
-  
-	private teamsUrl = 'https://wm6zl46tuf.execute-api.us-east-1.amazonaws.com/prod/GetPokemonSDTeamTrendReport?format=gen7vgc2018';  // URL to web api
+	
+	private teamsUrl = 'http://jocan3.com:3000/GetPokemonSDTeamTrendReport?';  // URL to web api
+	// private teamsUrl = 'https://wm6zl46tuf.execute-api.us-east-1.amazonaws.com/prod/GetPokemonSDTeamTrendReport?format=gen7vgc2018';  // URL to web api
 	private teamsUrl2 = 'https://jsonplaceholder.typicode.com/users';
+
+	private formatsURL = 'http://jocan3.com:3000/GetFormatList';
+
+	formatList: Format[] = [];
+
 	constructor(private http: HttpClient) { }
 
-	getTeams(startDate: number, endDate: number): Observable<TrendReport> { 
-		return this.http.get<TrendReport>(this.teamsUrl + '&startDate='+ startDate +'&endDate='+ endDate)
+	getTeams(format:string, startDate: number, endDate: number): Observable<TrendReport> { 
+		return this.http.get<TrendReport>(this.teamsUrl + 'format=' + format + '&startDate='+ startDate +'&endDate='+ endDate)
 			.pipe(
 		      catchError(this.handleError<TrendReport>('getTeams'))
 		    );
+	}
+
+	loadFormatList(): Promise<any> {
+		const promise = this.http.get<Format[]>(this.formatsURL)
+      .toPromise()
+      .then(formats => {
+				this.formatList = formats;
+      });
+ 
+    return promise;
 	}
 
 	posts: Observable<any>;

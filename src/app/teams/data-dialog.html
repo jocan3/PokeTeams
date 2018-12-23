@@ -1,0 +1,47 @@
+<!--h1 mat-dialog-title>Battle Ids</h1>
+<div mat-dialog-content>
+	<mat-nav-list>
+	   <a mat-list-item *ngFor="let battle_id of data.battle_ids" href="https://replay.pokemonshowdown.com/{{battle_id}}" target="_blank"> {{ battle_id }} </a>
+	</mat-nav-list>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="accent" (click)="onNoClick()">OK</button>
+</div-->
+
+
+<h1 mat-dialog-title>Team data</h1>
+<div mat-dialog-content>
+
+<mat-table [dataSource]="data.teamData">
+<ng-container *ngFor="let col of data.columnsList" [matColumnDef]="col">
+	<mat-header-cell *matHeaderCellDef> {{col}} </mat-header-cell>
+	<mat-cell *matCellDef="let element">
+		<ul>
+			<li>
+					Moves
+					<ul>
+						<li *ngFor="let val of element[col].moves">{{val}}</li>
+					</ul>
+			</li>
+			<li>
+					Items
+					<ul>
+						<li *ngFor="let val of element[col].items">{{val}}</li>
+					</ul>
+			</li>
+			<li>
+					Abilities
+					<ul>
+						<li *ngFor="let val of element[col].abilities">{{val}}</li>
+					</ul>
+			</li>
+		</ul>
+	</mat-cell>
+</ng-container>
+<mat-header-row *matHeaderRowDef="data.columnsList"></mat-header-row>
+<mat-row *matRowDef="let row; columns: data.columnsList;"></mat-row>
+</mat-table>
+<div mat-dialog-actions>
+  <button mat-button color="accent" (click)="onNoClick()">OK</button>
+</div>
+

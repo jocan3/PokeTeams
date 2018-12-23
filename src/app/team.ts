@@ -11,4 +11,5 @@ export class Team {
 	win_ratio: number;
 	relevance: number;
 	pokemon_ids: string[];
+	data: any[];
 }

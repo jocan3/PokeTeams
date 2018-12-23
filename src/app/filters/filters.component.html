@@ -2,6 +2,15 @@
 	<form (ngSubmit)="onSubmit(filtersForm)" #filtersForm="ngForm">
 		<div class="form-group">
 		<div>
+				<mat-form-field>
+						<mat-select placeholder="Format" [(ngModel)]="selectedFormat" name="format">
+							<mat-option *ngFor="let format of formatList" [value]="format.name">
+								{{format.displayName}}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+		</div>
+		<div>
 		<mat-form-field>
 		  <input class="form-control" name="startDate" matInput [matDatepicker]="startDate" placeholder="Start date" required [(ngModel)]="selectedStartDate">
 		  <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
@@ -16,6 +25,6 @@
 		</mat-form-field>
 	</div>
 	</div>
-	<button type="submit" [disabled]="!filtersForm.form.valid || !validDates()" mat-raised-button color="primary">Get teams!</button>
+	<button autofocus type="submit" [disabled]="!filtersForm.form.valid || !validDates()" mat-raised-button color="primary">Get teams!</button>
 	</form>
 </div>

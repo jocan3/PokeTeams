@@ -19,6 +19,7 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<Team>();
   startDate : string;
   endDate: string;
+  format: string;
   loading: boolean = false;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -36,20 +37,23 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   getTeams(): void {
     let startDateStr = this.route.snapshot.paramMap.get('startDate');
     let endDateStr = this.route.snapshot.paramMap.get('endDate');
-    var startDate = new Date();
-    var endDate = new Date();
-    var dayOfMonth = startDate.getDate();
+    let formatStr = this.route.snapshot.paramMap.get('format');
+    let startDate = new Date();
+    let endDate = new Date();
+    let dayOfMonth = startDate.getDate();
+    let format = this.teamService.formatList.find((format)=>format.default == true).name;
     startDate.setDate(dayOfMonth - 15);
-    if (startDateStr && endDateStr) {
+    if (startDateStr && endDateStr && formatStr) {
       startDate = new Date(0);
       endDate = new Date(0);
       startDate.setTime(Number(startDateStr)*1000);
       endDate.setTime(Number(endDateStr)*1000);
+      format = formatStr;
     }
     this.startDate = startDate.toLocaleDateString("en-US");
     this.endDate = endDate.toLocaleDateString("en-US");
     this.loading = true;
-  	this.teamService.getTeams(Math.floor(startDate.getTime()/1000), Math.floor(endDate.getTime()/1000))
+  	this.teamService.getTeams(format, Math.floor(startDate.getTime()/1000), Math.floor(endDate.getTime()/1000))
   			.subscribe(teams => {
           this.teams = teams.items;
           this.dataSource.data = this.teams;
@@ -62,6 +66,41 @@ export class TeamsComponent implements OnInit, AfterViewInit {
       width: '30em',
       data: { battle_ids: battle_ids }
     });
+  }
+  
+  seeData(data): void {
+    if (data) {
+      var columns = [];
+      data.forEach(element => {
+        var dataKeys = Object.keys(element);
+        dataKeys.forEach(dataKey => {
+          if (columns.indexOf(dataKey) == -1) {
+            columns.push(dataKey);
+          }
+        });
+      });
+
+      data.forEach(element => {
+        columns.forEach((col)=>{
+          if (!element[col]) {
+            element[col] = {
+              moves: [],
+              abilities: [],
+              items: []
+            };
+          }
+        });
+      });
+      let teamData = new MatTableDataSource();
+      teamData.data = data;
+      console.log(data);
+      console.log(columns);
+
+      let dialogRef = this.dialog.open(DataDialog, {
+        width: '60em',
+        data: { teamData: teamData, columnsList: columns }
+      });
+    }
   }
   
   ngAfterViewInit() {
@@ -86,6 +125,23 @@ export class BattleIdsDialog {
 
   constructor(
     public dialogRef: MatDialogRef<BattleIdsDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+};
+
+
+@Component({
+  selector: 'data-dialog',
+  templateUrl: 'data-dialog.html',
+})
+export class DataDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DataDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   onNoClick(): void {

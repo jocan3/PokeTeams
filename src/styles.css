@@ -5087,7 +5087,16 @@
 .sprite-xyicons.exeggutor-alola{background-position: -1310px -870px;width:30px;height:30px;}
 .sprite-xyicons.sandslash-alola{background-position: -840px -900px;width:30px;height:30px;}
 .sprite-xyicons.greninja-ash{background-position: -270px -900px;width:30px;height:30px;}
-
+.sprite-xyicons.necrozma-dusk-mane {
+    background: url(assets/images/necdm.png) !important;
+    width: 30px;
+    height: 30px;
+}
+.sprite-xyicons.necrozma-dawn-wings {
+    background: url(assets/images/necdw.png) !important;
+    width: 30px;
+    height: 30px;
+}
 
 @media only screen and (max-width: 500px) {
     .sprite-xyicons {

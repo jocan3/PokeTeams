@@ -3,6 +3,8 @@ import { MatDatepicker, MatFormField, MatInput, MatButton } from '@angular/mater
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { TeamService } from '../team.service';
+import { Format } from '../format.model';
 
 @Component({
   selector: 'app-filters',
@@ -14,12 +16,16 @@ export class FiltersComponent implements OnInit {
 
   @Input() snav;
 
+  formatList: Format[] = [];
+  selectedFormat: string;
   selectedStartDate = new Date();
   selectedEndDate = new Date();
 
-  constructor(private router: Router, private deviceService: DeviceDetectorService) { }
+  constructor(private router: Router, private teamService:TeamService, private deviceService: DeviceDetectorService) { }
   
   ngOnInit() {
+    this.formatList = this.teamService.formatList;
+    this.selectedFormat = this.formatList.find( (format) => format.default == true).name;
     var dayOfMonth = this.selectedStartDate.getDate();
     this.selectedStartDate.setDate(dayOfMonth - 15);
   }
@@ -34,10 +40,11 @@ export class FiltersComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    var format = this.selectedFormat;
     var startDate = this.selectedStartDate.getTime()/1000;
     var endDate = this.selectedEndDate.getTime()/1000;
     this.snav.toggle();
-    this.router.navigate(['/teams', startDate, endDate]);
+    this.router.navigate(['/teams', format, startDate, endDate]);
   }
 
 }

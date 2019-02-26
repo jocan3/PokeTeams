@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  AuthService as SocialAuthService,
+  FacebookLoginProvider,
+  GoogleLoginProvider
+} from 'angular5-social-login';
+import { AuthService } from '../auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +15,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private socialAuthService: SocialAuthService,
+    private route: ActivatedRoute,
+    private authService: AuthService,
+    private router: Router
+  ) { }
+
+  onUserChangedSubscription: Subscription;
+  loading = true;
+  returnUrl: string;
 
   ngOnInit() {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.onUserChangedSubscription = this.authService.onUserChanged.subscribe(
+      () => {
+        if (this.authService.isAuthenticated()) {
+          this.router.navigate([this.returnUrl]);
+        }
+      }
+    )
+    this.waitForAuth();
   }
   
   /*
@@ -25,24 +50,28 @@ export class LoginComponent implements OnInit {
   }
   */
 
-  public onSignIn(googleUser) {
-    console.log(googleUser);
-   
-   /* ((u, p) => {
-        u.id            = p.getId();
-        u.name          = p.getName();
-        u.email         = p.getEmail();
-        u.imageUrl      = p.getImageUrl();
-        u.givenName     = p.getGivenName();
-        u.familyName    = p.getFamilyName();
-    })(user, googleUser.getBasicProfile());
+ waitForAuth() {
+  setTimeout(()=>{    //<<<---    using ()=> syntax
+     this.loading = false;
+  }, 3000);
+ }
 
-    ((u, r) => {
-        u.token         = r.id_token;
-    })(user, googleUser.getAuthResponse());
-*/
-    // user.save();
-    // this.goHome();
-  };
+ public socialSignIn(socialPlatform : string) {
+  let socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+
+  if (this.authService.isAuthenticated()) {
+    this.router.navigate(['']);
+  }
+  
+  this.socialAuthService.signIn(socialPlatformProvider).then(
+    (userData) => {
+      console.log(socialPlatform+" sign in data : " , userData);
+      this.authService.user = userData;
+      this.router.navigate([this.returnUrl]);
+      // Now sign-in with userData
+    }
+  );
+}
+
 
 }

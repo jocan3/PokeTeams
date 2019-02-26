@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 
 .sprite-xyicons {
@@ -81,7 +81,19 @@
     background-repeat: no-repeat;
     background-position: -62px 0;
 }
+.sprite-xyicons.kyuremwhite {
+    width: 37px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: -62px 0;
+}
 .sprite-xyicons.ho-oh {
+    width: 29px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: 0 -64px;
+}
+.sprite-xyicons.hooh {
     width: 29px;
     height: 30px;
     background-repeat: no-repeat;
@@ -154,6 +166,12 @@
     background-position: -130px 0;
 }
 .sprite-xyicons.landorus-therian {
+    width: 27px;
+    height: 28px;
+    background-repeat: no-repeat;
+    background-position: -41px -127px;
+}
+.sprite-xyicons.landorustherian {
     width: 27px;
     height: 28px;
     background-repeat: no-repeat;
@@ -867,6 +885,14 @@
     background-repeat: no-repeat;
     background-position: -183px -320px;
 }
+
+.sprite-xyicons.giratinaorigin {
+    width: 28px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-position: -183px -320px;
+}
+
 .sprite-xyicons.pyroar {
     width: 32px;
     height: 25px;
@@ -5050,6 +5076,9 @@
 .sprite-xyicons.jangmo-o{background-position:-300px -900px;width:30px;height:30px;}
 .sprite-xyicons.hakamo-o{background-position:-330px -900px;width:30px;height:30px;}
 .sprite-xyicons.kommo-o{background-position:-900px -750px;width:30px;height:30px;}
+.sprite-xyicons.jangmoo{background-position:-300px -900px;width:30px;height:30px;}
+.sprite-xyicons.hakamoo{background-position:-330px -900px;width:30px;height:30px;}
+.sprite-xyicons.kommoo{background-position:-900px -750px;width:30px;height:30px;}
 .sprite-xyicons.tapukoko{background-position:-180px -900px;width:30px;height:30px;}
 .sprite-xyicons.tapulele{background-position:-931px -750px;width:25px;height:30px;left:-4px;}
 .sprite-xyicons.tapubulu{background-position:-900px -780px;width:30px;height:30px;}
@@ -5086,13 +5115,40 @@
 .sprite-xyicons.persian-alola{background-position: 0px -930px;width:30px;height:30px;}
 .sprite-xyicons.exeggutor-alola{background-position: -1310px -870px;width:30px;height:30px;}
 .sprite-xyicons.sandslash-alola{background-position: -840px -900px;width:30px;height:30px;}
+.sprite-xyicons.marowakalola{background-position: -1082px -930px;width:30px;height:30px;}
+.sprite-xyicons.golemalola{background-position: -60px -930px;width:30px;height:30px;}
+.sprite-xyicons.graveleralola{background-position: -90px -930px;width:30px;height:30px;}
+.sprite-xyicons.raticatealola{background-position: 570px -930px;width:30px;height:30px;}
+.sprite-xyicons.rattataalola{background-position: 598px -930px;width:30px;height:30px;}
+.sprite-xyicons.dugtrioalola{background-position: -902px -900px;width:30px;height:30px;}
+.sprite-xyicons.diglettalola{background-position: -871px -900px;width:30px;height:30px;}
+.sprite-xyicons.meowthalola{background-position: -929px -900px;width:30px;height:30px;}
+.sprite-xyicons.ninetalesalola{background-position: -1279px -870px;width:30px;height:30px;}
+.sprite-xyicons.vulpixalola{background-position: -1249px -870px;width:30px;height:30px;}
+.sprite-xyicons.sandshrewalola{background-position: -1219px -870px;width:30px;height:30px;}
+.sprite-xyicons.raichualola{background-position: 150px -900px;width:30px;height:30px;}
+.sprite-xyicons.mukalola{background-position: 513px -930px;width:37px;height:30px;}
+.sprite-xyicons.grimeralola{background-position: 540px -930px;width:30px;height:30px;}
+.sprite-xyicons.persianalola{background-position: 0px -930px;width:30px;height:30px;}
+.sprite-xyicons.exeggutoralola{background-position: -1310px -870px;width:30px;height:30px;}
+.sprite-xyicons.sandslashalola{background-position: -840px -900px;width:30px;height:30px;}
 .sprite-xyicons.greninja-ash{background-position: -270px -900px;width:30px;height:30px;}
 .sprite-xyicons.necrozma-dusk-mane {
     background: url(assets/images/necdm.png) !important;
     width: 30px;
     height: 30px;
 }
+.sprite-xyicons.necrozmadusk-mane {
+    background: url(assets/images/necdm.png) !important;
+    width: 30px;
+    height: 30px;
+}
 .sprite-xyicons.necrozma-dawn-wings {
+    background: url(assets/images/necdw.png) !important;
+    width: 30px;
+    height: 30px;
+}
+.sprite-xyicons.necrozmadawn-wings {
     background: url(assets/images/necdw.png) !important;
     width: 30px;
     height: 30px;

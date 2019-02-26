@@ -72,30 +72,31 @@ export class TeamsComponent implements OnInit, AfterViewInit {
     if (data) {
       var columns = [];
       data.forEach(element => {
-        var dataKeys = Object.keys(element);
-        dataKeys.forEach(dataKey => {
-          if (columns.indexOf(dataKey) == -1) {
-            columns.push(dataKey);
-          }
-        });
+        if (element) {
+          var dataKeys = Object.keys(element);
+          dataKeys.forEach(dataKey => {
+            if (columns.indexOf(dataKey) == -1) {
+              columns.push(dataKey);
+            }
+          });
+        }
       });
 
       data.forEach(element => {
-        columns.forEach((col)=>{
-          if (!element[col]) {
-            element[col] = {
-              moves: [],
-              abilities: [],
-              items: []
-            };
-          }
-        });
+        if (element) {
+          columns.forEach((col)=>{
+            if (!element[col]) {
+              element[col] = {
+                moves: [],
+                abilities: [],
+                items: []
+              };
+            }
+          });
+        }
       });
       let teamData = new MatTableDataSource();
-      teamData.data = data;
-      console.log(data);
-      console.log(columns);
-
+      teamData.data = data.filter((element) => element != null);
       let dialogRef = this.dialog.open(DataDialog, {
         width: '60em',
         data: { teamData: teamData, columnsList: columns }

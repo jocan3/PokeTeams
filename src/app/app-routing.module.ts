@@ -5,14 +5,15 @@ import { DashboardComponent }   from './dashboard/dashboard.component';
 import { TeamDetailComponent }  from './team-detail/team-detail.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardService as AuthGuard } from './auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/teams', pathMatch: 'full' },
-  { path: 'teams', component: TeamsComponent },
+  { path: 'teams', component: TeamsComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
-  { path: 'teams/:format/:startDate/:endDate', component: TeamsComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'detail/:id', component: TeamDetailComponent }
+  { path: 'teams/:format/:startDate/:endDate', component: TeamsComponent, canActivate: [AuthGuard]}
+  /* { path: 'dashboard', component: DashboardComponent },
+  { path: 'detail/:id', component: TeamDetailComponent } */
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 .login-button-container {
     margin-top: 4em;
     text-align: center;
+    scale: 200%;
 }
 
 .google-button {

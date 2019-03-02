@@ -123,7 +123,17 @@ export class TeamsComponent implements OnInit, AfterViewInit {
     this.route.paramMap.subscribe(params =>{
       this.getTeams();
     });
-  	this.getTeams();
+    this.getTeams();
+    this.dataSource.filterPredicate = (data: Team, filter: string) => {
+      if (!filter) return true;
+      var tokens = filter.split(' ');
+      for (var i =0; i < tokens.length; ++i) {
+        if (data.team.toLowerCase().indexOf(tokens[i]) == -1) {
+          return false;
+        }
+      }
+      return true;
+    }
   }
 
 };

@@ -5,7 +5,7 @@
     <p>{{errorMessage}}</p>
   </div>
 </div>
-<div *ngIf="!loading && !errorMessage">
+<div [hidden]="loading || errorMessage">
   <div class="results-header">
     <p>source: <b>Pokemon Showdown replays</b></p> 
     <p>format: <b>{{formatDisplayName}}</b></p>
@@ -14,7 +14,7 @@
 <div class="table-container mat-elevation-z8">
 	<div class="teams-search-input-container">
 		<mat-form-field class="teams-search-input">
-		  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+		  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search by pokemon">
 		</mat-form-field>
 	</div>
   <mat-table #table [dataSource]="dataSource" matSort matSortActive="relevance" matSortDirection="desc">

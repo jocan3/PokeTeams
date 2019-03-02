@@ -17,6 +17,10 @@ p {
   text-align: center;
 }
 
+.results-header {
+  line-height: 0.1cm;
+  text-align: right;
+}
 
 @media only screen and (max-width: 500px) {
   .teams-search-input {
@@ -25,7 +29,7 @@ p {
   .teams-sprites-column {
     flex: 1 1 40% !important;
   }
-  .users-column {
+  .desktop-column {
     display: none;
   }
 }

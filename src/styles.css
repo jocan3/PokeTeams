@@ -1,6 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
+.alert-danger {
+    background-color: #F66359; /* Red */
+}
+.alert-success {
+    background-color: #36f456;  
+} 
+
+/* The alert message box */
+.alert {
+    padding: 0.2em;
+    color: white;
+    margin: 1em;
+}
 
 .sprite-xyicons {
 	display: inline-block;

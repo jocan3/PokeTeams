@@ -27,7 +27,6 @@ export class AuthService {
   }
 
   public isAuthenticated(): boolean {
-    const token = localStorage.getItem('token');
     return this.user != null;
   }
 
@@ -35,7 +34,6 @@ export class AuthService {
     return new Observable(observer => {
       this.socialAuthService.authState.subscribe(
         socialUser => {
-          console.log(socialUser);
           this.user = socialUser;
           observer.next();
           observer.complete();

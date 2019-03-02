@@ -7,6 +7,7 @@ import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Format } from './format.model';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class TeamService {
@@ -19,13 +20,13 @@ export class TeamService {
 
 	formatList: Format[] = [];
 
-	constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient, private auth: AuthService) { }
 
 	getTeams(format:string, startDate: number, endDate: number): Observable<TrendReport> { 
-		return this.http.get<TrendReport>(this.teamsUrl + 'format=' + format + '&startDate='+ startDate +'&endDate='+ endDate)
-			.pipe(
-		      catchError(this.handleError<TrendReport>('getTeams'))
-		    );
+		return this.http.get<TrendReport>(this.teamsUrl + 'format=' + format + '&token=' + this.auth.user.idToken + '&startDate='+ startDate +'&endDate='+ endDate)
+		//	.pipe(
+		//      catchError(this.handleError<TrendReport>('getTeams'))
+		//    );
 	}
 
 	loadFormatList(): Promise<any> {

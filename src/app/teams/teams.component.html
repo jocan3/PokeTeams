@@ -1,6 +1,17 @@
-<p>Trending teams from <b>{{startDate}}</b> to <b>{{endDate}}</b></p>
+
 <mat-spinner style="margin:0 auto;" *ngIf="loading"></mat-spinner>
-<div class="table-container mat-elevation-z8" [hidden]="loading">
+<div *ngIf="errorMessage">
+  <div class="alert alert-danger" role="alert">
+    <p>{{errorMessage}}</p>
+  </div>
+</div>
+<div *ngIf="!loading && !errorMessage">
+  <div class="results-header">
+    <p>source: <b>Pokemon Showdown replays</b></p> 
+    <p>format: <b>{{formatDisplayName}}</b></p>
+    <p>from <b>{{startDate}}</b> to <b>{{endDate}}</b></p>
+  </div>
+<div class="table-container mat-elevation-z8">
 	<div class="teams-search-input-container">
 		<mat-form-field class="teams-search-input">
 		  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -27,9 +38,19 @@
     </ng-container>
 
     <ng-container matColumnDef="users_count">
-      <mat-header-cell *matHeaderCellDef mat-sort-header class="users-column"> Users </mat-header-cell>
-      <mat-cell *matCellDef="let element" class="users-column"> {{element.users_count}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="desktop-column"> Users </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="desktop-column"> {{element.users_count}} </mat-cell>
     </ng-container>
+
+    <ng-container matColumnDef="win_ratio">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="desktop-column"> Win Ratio </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="desktop-column"> {{element.win_ratio | number : '1.4' }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="usage_ratio">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="desktop-column"> Usage Ratio </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="desktop-column"> {{ element.usage_ratio | number : '1.4' }} </mat-cell>
+      </ng-container>
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="relevance">
@@ -44,4 +65,5 @@
                  [pageSize]="10"
                  [pageSizeOptions]="[ 10, 40, 120]">
   </mat-paginator>
+</div>
 </div>

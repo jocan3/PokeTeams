@@ -15,12 +15,13 @@ import { Route, ActivatedRoute } from '@angular/router';
 export class TeamsComponent implements OnInit, AfterViewInit {
 
   teams: Team[];
-  displayedColumns = ['team', 'usage_count', 'win_count', 'users_count', 'relevance'];
+  displayedColumns = ['team', 'usage_count', 'win_count', 'users_count', 'usage_ratio', 'win_ratio','relevance'];
   dataSource = new MatTableDataSource<Team>();
   startDate : string;
   endDate: string;
-  format: string;
+  formatDisplayName: string;
   loading: boolean = false;
+  errorMessage: string;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -50,6 +51,7 @@ export class TeamsComponent implements OnInit, AfterViewInit {
       endDate.setTime(Number(endDateStr)*1000);
       format = formatStr;
     }
+    this.formatDisplayName = this.teamService.formatList.find((f)=>f.name == format).displayName;
     this.startDate = startDate.toLocaleDateString("en-US");
     this.endDate = endDate.toLocaleDateString("en-US");
     this.loading = true;
@@ -58,6 +60,14 @@ export class TeamsComponent implements OnInit, AfterViewInit {
           this.teams = teams.items;
           this.dataSource.data = this.teams;
           this.loading = false;
+        },(error) => {
+          console.log(error);
+          this.loading = false;
+          if (error.status == 401) {
+            this.errorMessage = "You don't have access to see this page."
+          } else {
+            this.errorMessage = "There was an error getting the report. Please try again later."
+          }
         });
   }
 

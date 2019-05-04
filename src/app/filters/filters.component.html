@@ -24,6 +24,12 @@
 		  <mat-datepicker #endDate [touchUi]="isMobile()"></mat-datepicker>
 		</mat-form-field>
 	</div>
+	<div>
+		<mat-form-field>
+			<input matInput style="display: none" >
+			<mat-checkbox class="form-control" name="ladderReport"  [(ngModel)]="ladderReport">Top ladder users only</mat-checkbox>
+		</mat-form-field>
+	</div>
 	</div>
 	<button autofocus type="submit" [disabled]="!filtersForm.form.valid || !validDates()" mat-raised-button color="primary">Get teams!</button>
 	</form>

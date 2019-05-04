@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule,  
   MatButtonModule, MatGridListModule, MatTableModule, MatProgressSpinnerModule, 
     MatPaginatorModule, MatSortModule, MatDialogModule, MatFormFieldModule, MatInputModule,
-      MatDatepickerModule, MatNativeDateModule, MatSelectModule} from '@angular/material';
+      MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatRadioModule, MatCheckboxModule} from '@angular/material';
 import { FiltersComponent } from './filters/filters.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { LoginComponent } from './login/login.component';
@@ -85,6 +85,8 @@ export function getAuthServiceConfigs() {
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatRadioModule,
+    MatCheckboxModule,
     DeviceDetectorModule.forRoot(),
     SocialLoginModule
   ],

@@ -15,6 +15,11 @@
     margin: 1em;
 }
 
+.logo-container {
+    display: inline-block;
+    background-image: url(assets/images/poke_teams_logo2.png);
+}
+
 .sprite-xyicons {
 	display: inline-block;
     background-image: url(assets/images/smicons.png);

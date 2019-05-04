@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/teams', pathMatch: 'full' },
   { path: 'teams', component: TeamsComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
-  { path: 'teams/:format/:startDate/:endDate', component: TeamsComponent, canActivate: [AuthGuard]}
+  { path: 'teams/:format/:startDate/:endDate/:ladderReport', component: TeamsComponent, canActivate: [AuthGuard]}
   /* { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: TeamDetailComponent } */
 ];

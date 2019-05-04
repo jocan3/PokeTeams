@@ -22,8 +22,8 @@ export class TeamService {
 
 	constructor(private http: HttpClient, private auth: AuthService) { }
 
-	getTeams(format:string, startDate: number, endDate: number): Observable<TrendReport> { 
-		return this.http.get<TrendReport>(this.teamsUrl + 'format=' + format + '&token=' + this.auth.user.idToken + '&startDate='+ startDate +'&endDate='+ endDate)
+	getTeams(format:string, startDate: number, endDate: number, ladderReport: boolean): Observable<TrendReport> { 
+		return this.http.get<TrendReport>(this.teamsUrl + 'format=' + format + '&email=' + this.auth.user.email + '&token=' + this.auth.user.idToken + '&startDate='+ startDate +'&endDate='+ endDate + (ladderReport ? "&ladderReport=true" : ""))
 		//	.pipe(
 		//      catchError(this.handleError<TrendReport>('getTeams'))
 		//    );

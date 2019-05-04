@@ -20,6 +20,7 @@ export class FiltersComponent implements OnInit {
   selectedFormat: string;
   selectedStartDate = new Date();
   selectedEndDate = new Date();
+  ladderReport: boolean = false;
 
   constructor(private router: Router, private teamService:TeamService, private deviceService: DeviceDetectorService) { }
   
@@ -43,8 +44,9 @@ export class FiltersComponent implements OnInit {
     var format = this.selectedFormat;
     var startDate = this.selectedStartDate.getTime()/1000;
     var endDate = this.selectedEndDate.getTime()/1000;
+    var ladderReport = this.ladderReport;
     this.snav.toggle();
-    this.router.navigate(['/teams', format, startDate, endDate]);
+    this.router.navigate(['/teams', format, startDate, endDate, ladderReport]);
   }
 
 }

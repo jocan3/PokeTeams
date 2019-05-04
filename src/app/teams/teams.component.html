@@ -1,7 +1,7 @@
 
 <mat-spinner style="margin:0 auto;" *ngIf="loading"></mat-spinner>
 <div *ngIf="errorMessage">
-  <div class="alert alert-danger" role="alert">
+  <div>
     <p>{{errorMessage}}</p>
   </div>
 </div>
@@ -13,9 +13,16 @@
   </div>
 <div class="table-container mat-elevation-z8">
 	<div class="teams-search-input-container">
-		<mat-form-field class="teams-search-input">
-		  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search by pokemon">
-		</mat-form-field>
+    <label id="search-by-radio-group-label">Search by: </label>
+    <mat-radio-group aria-label="Search by"  [(ngModel)]="searchBy">
+          <mat-radio-button value="pokemon" (click)="setPokemonFilterPredicate()">Pokemon</mat-radio-button> |
+          <mat-radio-button value="username" (click)="setUsernameFilterPredicate()">Username</mat-radio-button>
+    </mat-radio-group>
+    <div>
+    <mat-form-field class="teams-search-input">
+		  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Enter value(s)">
+    </mat-form-field>
+    </div>
 	</div>
   <mat-table #table [dataSource]="dataSource" matSort matSortActive="relevance" matSortDirection="desc">
     <!-- Position Column -->
@@ -50,6 +57,11 @@
       <ng-container matColumnDef="usage_ratio">
           <mat-header-cell *matHeaderCellDef mat-sort-header class="desktop-column"> Usage Ratio </mat-header-cell>
           <mat-cell *matCellDef="let element" class="desktop-column"> {{ element.usage_ratio | number : '1.4' }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="ladder_rank">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="desktop-column"> Ladder rank </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="desktop-column"> {{ element.ladder_rank }} </mat-cell>
       </ng-container>
 
     <!-- Symbol Column -->

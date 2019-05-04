@@ -1,7 +1,7 @@
 <div class="app-container" [class.app-is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="app-toolbar">
     <button *ngIf="showMenu()" mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1>{{title}}</h1>
+    <img src="assets/images/poke_teams_logo2.png" height="60" width="160">
   </mat-toolbar>
   <mat-sidenav-container class="app-sidenav-container"
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0">

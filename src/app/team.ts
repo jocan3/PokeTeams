@@ -5,11 +5,12 @@ export class Team {
 	team: string;
 	usage_count: number;
 	win_count: number;
-	battle_ids: string[];
+	battle_ids;
 	users: string[];
 	usage_ratio: number;
 	win_ratio: number;
 	relevance: number;
 	pokemon_ids: string[];
+	ladder_rank: number;
 	data: any[];
 }

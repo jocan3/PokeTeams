@@ -17,19 +17,19 @@
 	<mat-header-cell *matHeaderCellDef> {{col}} </mat-header-cell>
 	<mat-cell *matCellDef="let element">
 		<ul>
-			<li>
+			<li *ngIf="element[col].moves && element[col].moves.length > 0">
 					Moves
 					<ul>
 						<li *ngFor="let val of element[col].moves">{{val}}</li>
 					</ul>
 			</li>
-			<li>
+			<li *ngIf="element[col].items && element[col].items.length > 0">
 					Items
 					<ul>
 						<li *ngFor="let val of element[col].items">{{val}}</li>
 					</ul>
 			</li>
-			<li>
+			<li *ngIf="element[col].abilities && element[col].abilities.length > 0">
 					Abilities
 					<ul>
 						<li *ngFor="let val of element[col].abilities">{{val}}</li>
@@ -41,7 +41,24 @@
 <mat-header-row *matHeaderRowDef="data.columnsList"></mat-header-row>
 <mat-row *matRowDef="let row; columns: data.columnsList;"></mat-row>
 </mat-table>
+
+<mat-table [dataSource]="data.teamDataStats">
+	<ng-container *ngFor="let col of data.columnsList" [matColumnDef]="col">
+		<mat-header-cell *matHeaderCellDef> {{col}} </mat-header-cell>
+		<mat-cell *matCellDef="let element">
+			<ul *ngIf="getKeys(element[col]).length > 0">
+				<li *ngFor="let val of getKeys(element[col])">
+					{{val}}: {{element[col][val]}}
+				</li>
+			</ul>
+		</mat-cell>
+	</ng-container>
+	<mat-header-row *matHeaderRowDef="data.columnsList"></mat-header-row>
+	<mat-row *matRowDef="let row; columns: data.columnsList;"></mat-row>
+	</mat-table>
+
+
 <div mat-dialog-actions>
-  <button mat-button color="accent" (click)="onNoClick()">OK</button>
+  <button mat-button (click)="onNoClick()">OK</button>
 </div>
 

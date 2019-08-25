@@ -37,7 +37,7 @@ export class FiltersComponent implements OnInit {
 
   isMobile(): boolean {
     var deviceInfo = this.deviceService.getDeviceInfo();
-    return deviceInfo.device =='android' || deviceInfo.device == 'iphone';
+    return deviceInfo.device.toLowerCase() =='android' || deviceInfo.device.toLowerCase() == 'iphone';
   }
 
   onSubmit(form: NgForm) {

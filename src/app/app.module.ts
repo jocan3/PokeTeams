@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule,  
   MatButtonModule, MatGridListModule, MatTableModule, MatProgressSpinnerModule, 
     MatPaginatorModule, MatSortModule, MatDialogModule, MatFormFieldModule, MatInputModule,
-      MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatRadioModule, MatCheckboxModule} from '@angular/material';
+      MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatRadioModule, MatCheckboxModule, MatCardModule, MatTabsModule} from '@angular/material';
 import { FiltersComponent } from './filters/filters.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { LoginComponent } from './login/login.component';
@@ -27,6 +27,7 @@ import {
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { forkJoin } from 'rxjs/observable/forkJoin';
+import { ActionButtonComponent } from './action-button/action-button.component';
 
 export function init_app(teamService: TeamService, authService: AuthService) {
   return () => 
@@ -57,7 +58,8 @@ export function getAuthServiceConfigs() {
     BattleIdsDialog,
     DataDialog,
     FiltersComponent,
-    LoginComponent
+    LoginComponent,
+    ActionButtonComponent
   ],
   entryComponents: [
     BattleIdsDialog,
@@ -87,8 +89,12 @@ export function getAuthServiceConfigs() {
     MatSelectModule,
     MatRadioModule,
     MatCheckboxModule,
+    MatCardModule,
+    MatGridListModule,
+    MatTabsModule,
     DeviceDetectorModule.forRoot(),
-    SocialLoginModule
+    SocialLoginModule,
+    MatIconModule
   ],
   providers: [
     TeamService,

@@ -1,6 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
+.data-stats-tile {
+    overflow: scroll !important;
+    height: 90%;
+}
+  
+.data-stats-card {
+    width: 80%;
+    height: 90%;
+}
+
+.data-stats-grid-tile {
+    border: solid;
+}
+
 .alert-danger {
     background-color: #F66359; /* Red */
 }
@@ -2119,6 +2133,18 @@
     background-position: -536px -149px;
 }
 .sprite-xyicons.gastrodon {
+    width: 23px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: -554px -72px;
+}
+.sprite-xyicons.gastrodoneast {
+    width: 23px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: -554px -72px;
+}
+.sprite-xyicons.gastrodonwest {
     width: 23px;
     height: 22px;
     background-repeat: no-repeat;

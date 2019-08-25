@@ -6,6 +6,7 @@ import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatDialogRef, MAT
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { Route, ActivatedRoute } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-teams',
@@ -15,7 +16,7 @@ import { Route, ActivatedRoute } from '@angular/router';
 export class TeamsComponent implements OnInit, AfterViewInit {
 
   teams: Team[];
-  displayedColumns = ['team', 'usage_count', 'win_count', 'users_count', 'usage_ratio', 'win_ratio', 'ladder_rank','relevance'];
+  displayedColumns = ['team', 'usage_count', 'win_count', 'users_count', 'usage_ratio', 'win_ratio', 'ladder_rank','relevance','actions'];
   dataSource = new MatTableDataSource<Team>();
   startDate : string;
   endDate: string;
@@ -24,11 +25,12 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   errorMessage: string;
   searchBy: string = "pokemon";
   username: string;
+  showActionsMobile: boolean = false;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private teamService: TeamService, public dialog: MatDialog, private route: ActivatedRoute) {
+  constructor(private teamService: TeamService, public dialog: MatDialog, private route: ActivatedRoute, private deviceService: DeviceDetectorService) {
   }
 
   applyFilter(filterValue: string) {
@@ -74,18 +76,20 @@ export class TeamsComponent implements OnInit, AfterViewInit {
         });
   }
 
-  seeBattleIds(battle_ids): void {
-    let filteredBattleIds = battle_ids;
+  seeBattleIds(battle_ids_wins, battle_ids_losses): void {
+    let filteredBattleIdsLosses = battle_ids_losses;
+    let filteredBattleIdsWins = battle_ids_wins;
     if (this.searchBy == "username") {
-      filteredBattleIds = battle_ids.filter( b => b.username.indexOf(this.username) != -1);
+      filteredBattleIdsLosses = battle_ids_losses.filter( b => b.username.toLowerCase().indexOf(this.username.toLowerCase()) != -1);
+      filteredBattleIdsWins = battle_ids_wins.filter( b => b.username.toLowerCase().indexOf(this.username.toLowerCase()) != -1);
     }
     let dialogRef = this.dialog.open(BattleIdsDialog, {
       width: '30em',
-      data: { battle_ids: filteredBattleIds }
+      data: { battle_ids_wins: filteredBattleIdsWins, battle_ids_losses: filteredBattleIdsLosses }
     });
   }
   
-  seeData(data): void {
+  seeData(data, lead): void {
     if (data) {
       var dataStats = {};
       var columns = [];
@@ -130,25 +134,52 @@ export class TeamsComponent implements OnInit, AfterViewInit {
       let teamDataStats = new MatTableDataSource();
       teamDataStats.data = [dataStats];
 
-      console.log(teamDataStats.data);
-
       let dialogRef = this.dialog.open(DataDialog, {
         width: '60em',
-        data: { teamData: teamData, columnsList: columns, teamDataStats: teamDataStats }
+        data: { teamData: teamData, columnsList: columns, dataStats: dataStats, leads: lead }
       });
     }
   }
 
+  showMobileActions() {
+    this.showActionsMobile = !this.showActionsMobile;
+  }
+
   private fillDataStats(dataStats, element) {
     Object.keys(dataStats).forEach((col) => {
-      let values = element[col].moves.concat(element[col].abilities).concat(element[col].items);
+
+      dataStats[col]['moves'] = dataStats[col]['moves'] ? dataStats[col]['moves'] : {};
+      dataStats[col]['abilities'] = dataStats[col]['abilities'] ? dataStats[col]['abilities'] : {};
+      dataStats[col]['items'] = dataStats[col]['items'] ? dataStats[col]['items'] : {};
+
+      let values = element[col].moves;      
       values.forEach(value => {
-        if (dataStats[col][value]) {
-          dataStats[col][value] ++;
+        if (dataStats[col].moves[value]) {
+          dataStats[col].moves[value]++;
         } else {
-          dataStats[col][value] = 1;
+          dataStats[col].moves[value] = 1;
         }
       });
+
+      values = element[col].abilities;      
+      values.forEach(value => {
+        if (dataStats[col].abilities[value]) {
+          dataStats[col].abilities[value]++;
+        } else {
+          dataStats[col].abilities[value] = 1;
+        }
+      });
+
+      values = element[col].items;      
+      values.forEach(value => {
+        if (dataStats[col].items[value]) {
+          dataStats[col].items[value]++;
+        } else {
+          dataStats[col].items[value] = 1;
+        }
+      });
+
+
     });
   }
 
@@ -189,9 +220,14 @@ export class TeamsComponent implements OnInit, AfterViewInit {
     this.dataSource.filterPredicate = (data: Team, filter: string) => {
       if (!filter) return true;
       this.username = filter;
-      let matches = data.battle_ids.filter(b => { return b.username.indexOf(this.username) != -1; })
+      let matches = data.battle_ids.filter(b => { return b.username.toLowerCase().indexOf(this.username.toLowerCase()) != -1; })
       return matches.length > 0;
     }
+  }
+
+  isMobile(): boolean {
+    var deviceInfo = this.deviceService.getDeviceInfo();
+    return deviceInfo.device =='android' || deviceInfo.device == 'iphone';
   }
 
   ngAfterViewInit() {
@@ -234,7 +270,8 @@ export class DataDialog {
 
   constructor(
     public dialogRef: MatDialogRef<DataDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private deviceService: DeviceDetectorService) { }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -242,6 +279,19 @@ export class DataDialog {
 
   getKeys(object) {
     return Object.keys(object);
+  }
+
+  isMobile(): boolean {
+    var deviceInfo = this.deviceService.getDeviceInfo();
+    return deviceInfo.device.toLowerCase() =='android' || deviceInfo.device.toLowerCase() == 'iphone';
+  }
+
+  getNumberOfColumns(): number {
+    if (this.isMobile()) {
+      return 1;
+    } else {
+      return 3;
+    }
   }
 
 };

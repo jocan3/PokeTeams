@@ -20,8 +20,14 @@ p {
 .results-header {
   line-height: 0.1cm;
   text-align: right;
+
+  /* background-image: url("../../assets/images/Picture4.png");
+  background-repeat: no-repeat;
+  background-position-y: -90px; */
 }
 
+.mat-card { display:inline-block}
+ 
 @media only screen and (max-width: 500px) {
   .teams-search-input {
     width: 90%;

@@ -24,6 +24,14 @@ h1 {
   flex: 1;
 }
 
+/* .app-sidenav {
+  background-image: url("../assets/images/Picture3.png");
+  background-repeat: no-repeat;
+  background-position-x: -20px;
+  background-size: auto;
+}
+*/
+
 .app-is-mobile .app-sidenav-container {
   /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
      `<body>` to be our scrolling element for mobile layouts. */

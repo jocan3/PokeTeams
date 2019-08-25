@@ -29,24 +29,24 @@
     <ng-container matColumnDef="team">
       <mat-header-cell *matHeaderCellDef class="teams-sprites-column"> Team </mat-header-cell>
       <mat-cell *matCellDef="let element" class="teams-sprites-column"> 
-		<mat-grid-list cols="3" (click)="showMobileActions()">
+		<mat-grid-list cols="3" (click)="showMobileActions(element)">
 		  <mat-grid-tile *ngFor="let pokemon of element.pokemon_ids"><span [class]="pokemon.replace(' ','') | lowercase" [class.sprite-xyicons]="pokemon"></span></mat-grid-tile>
 		</mat-grid-list>
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="usage_count">
-      <mat-header-cell *matHeaderCellDef mat-sort-header [class.desktop-column]="showActionsMobile"> Usage </mat-header-cell>
-      <mat-cell *matCellDef="let element" [class.desktop-column]="showActionsMobile" > {{element.usage_count}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Usage </mat-header-cell>
+      <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions" > {{element.usage_count}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="win_count">
-      <mat-header-cell *matHeaderCellDef mat-sort-header [class.desktop-column]="showActionsMobile"> Win </mat-header-cell>
-      <mat-cell *matCellDef="let element" [class.desktop-column]="showActionsMobile"> {{element.win_count}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Win </mat-header-cell>
+      <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions"> {{element.win_count}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="users_count">
-      <mat-header-cell *matHeaderCellDef mat-sort-header [class.desktop-column]="showActionsMobile"> Users </mat-header-cell>
-      <mat-cell *matCellDef="let element" [class.desktop-column]="showActionsMobile"> {{element.users_count}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Users </mat-header-cell>
+      <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions"> {{element.users_count}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="win_ratio">
@@ -70,8 +70,8 @@
     </ng-container>
 
     <ng-container matColumnDef="actions">
-      <mat-header-cell *matHeaderCellDef [class.desktop-column]="!showActionsMobile"> Actions </mat-header-cell>
-      <mat-cell [class.desktop-column]="!showActionsMobile" *matCellDef="let element">
+      <mat-header-cell *matHeaderCellDef class="desktop-column"> Actions </mat-header-cell>
+      <mat-cell [class.desktop-column]="!element.show_actions" *matCellDef="let element">
           <app-action-button icon="play_circle_filled" label="replays" (onClick)="seeBattleIds(element.battle_ids_wins, element.battle_ids_losses)"></app-action-button>
           <app-action-button icon="bar_chart" label="data" (onClick)="seeData(element.data, element.lead)"></app-action-button>
       </mat-cell>

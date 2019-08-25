@@ -2,17 +2,23 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 .data-stats-tile {
-    overflow: scroll !important;
-    height: 90%;
-}
-  
-.data-stats-card {
-    width: 80%;
-    height: 90%;
+    margin: 0 auto;
 }
 
 .data-stats-grid-tile {
     border: solid;
+}
+
+.data-card-title {
+    z-index: 100;
+}
+
+.table-data {
+    width: 100%;
+}
+
+.col1-data {
+    width: 25%;
 }
 
 .alert-danger {

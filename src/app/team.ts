@@ -13,4 +13,5 @@ export class Team {
 	pokemon_ids: string[];
 	ladder_rank: number;
 	data: any[];
+	show_actions: boolean = false;
 }

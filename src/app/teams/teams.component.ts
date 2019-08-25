@@ -26,6 +26,7 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   searchBy: string = "pokemon";
   username: string;
   showActionsMobile: boolean = false;
+  lastSelected: Team;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -132,7 +133,7 @@ export class TeamsComponent implements OnInit, AfterViewInit {
       teamData.data = data.filter((element) => element != null);
 
       let teamDataStats = new MatTableDataSource();
-      teamDataStats.data = [dataStats];
+      teamDataStats.data = [dataStats];      
 
       let dialogRef = this.dialog.open(DataDialog, {
         width: '60em',
@@ -141,8 +142,12 @@ export class TeamsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  showMobileActions() {
-    this.showActionsMobile = !this.showActionsMobile;
+  showMobileActions(element: Team) {
+    element.show_actions = true;
+    if (this.lastSelected) {
+      this.lastSelected.show_actions = false;
+    }
+    this.lastSelected = element;
   }
 
   private fillDataStats(dataStats, element) {
@@ -279,6 +284,16 @@ export class DataDialog {
 
   getKeys(object) {
     return Object.keys(object);
+  }
+
+  getSortedKeys(object) {
+    let keys = Object.keys(object);
+    return keys.sort((a,b) => object[b] - object[a]);
+  }
+
+  getPercentage(value, object) {1
+    let sum: number = Object.values(object).reduce((a: number,b: number)=> a + b) as number;
+    return (value/sum)*100;
   }
 
   isMobile(): boolean {

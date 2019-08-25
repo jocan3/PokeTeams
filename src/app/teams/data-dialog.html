@@ -1,33 +1,37 @@
 
 <h1 mat-dialog-title>Team winning stats</h1>
 <div mat-dialog-content>
-<mat-grid-list [cols]="getNumberOfColumns()">
-		<mat-grid-tile *ngFor="let col of data.columnsList" class="data-stats-grid-tile">
+		<div *ngFor="let col of data.columnsList">
 				<mat-card class="data-stats-card">
 					<mat-card-header>
-						<mat-card-title><h3>{{col}}</h3></mat-card-title>
+					    <div mat-card-avatar [class]="col.replace(' ','') | lowercase" [class.sprite-xyicons]="col" class="example-header-image"></div>
+						<mat-card-title class="data-card-title"><h3>{{col}}</h3></mat-card-title>
 					</mat-card-header>
 					<div class="data-stats-tile">
 						<div *ngFor="let val of getKeys(data.dataStats[col])">
 							<b>{{val}}</b>
-							<table>
-								<tr *ngFor="let val2 of getKeys(data.dataStats[col][val])">
-									<td>{{val2}}</td><td>{{data.dataStats[col][val][val2]}}</td>
+							<table class="table-data">
+								<tr *ngFor="let val2 of getSortedKeys(data.dataStats[col][val])">
+									<td class="col1-data">{{val2}}</td>
+									<td>
+									<mat-progress-bar mode="determinate" [value]="getPercentage(data.dataStats[col][val][val2], data.dataStats[col][val])"></mat-progress-bar>
+									 {{getPercentage(data.dataStats[col][val][val2], data.dataStats[col][val]) | number : '1.0-1'}}%
+									</td>
 								</tr>
 							</table>
 							<br/>
 						</div>
 					</div>
 				</mat-card>
-		</mat-grid-tile>
-</mat-grid-list>
+			</div>
 	<mat-card>
 		<mat-card-header>
 			<mat-card-title><h3>Leads</h3></mat-card-title>
 		</mat-card-header>
-		<table>
-			<tr *ngFor="let l of getKeys(data.leads)">
-				<td>{{l}}</td><td>{{data.leads[l]}}</td>
+		<table class="table-data">
+			<tr *ngFor="let l of getSortedKeys(data.leads)">
+				<td class="col1-data">{{l}}</td>
+				<td><mat-progress-bar mode="determinate" [value]="getPercentage(data.leads[l],data.leads)" max="100"></mat-progress-bar> {{getPercentage(data.leads[l],data.leads) | number : '1.0-1'}}%</td>
 			</tr>
 		</table>
 		<br/>

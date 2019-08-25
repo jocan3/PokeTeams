@@ -22,6 +22,8 @@ export class FiltersComponent implements OnInit {
   selectedEndDate = new Date();
   ladderReport: boolean = false;
 
+  private threeMonths: number;
+
   constructor(private router: Router, private teamService:TeamService, private deviceService: DeviceDetectorService) { }
   
   ngOnInit() {
@@ -29,10 +31,15 @@ export class FiltersComponent implements OnInit {
     this.selectedFormat = this.formatList.find( (format) => format.default == true).name;
     var dayOfMonth = this.selectedStartDate.getDate();
     this.selectedStartDate.setDate(dayOfMonth - 15);
+
+    let d = new Date();
+    d.setMonth(d.getMonth() - 3);
+    let e = new Date();
+    this.threeMonths = e.getTime() - d.getTime();
   }
 
   validDates(): boolean {
-    return (this.selectedEndDate && this.selectedStartDate && (this.selectedStartDate <= this.selectedEndDate));
+    return (this.selectedEndDate && this.selectedStartDate && (this.selectedStartDate <= this.selectedEndDate) && (this.validateRange()));
   }
 
   isMobile(): boolean {
@@ -47,6 +54,10 @@ export class FiltersComponent implements OnInit {
     var ladderReport = this.ladderReport;
     this.snav.toggle();
     this.router.navigate(['/teams', format, startDate, endDate, ladderReport]);
+  }
+
+  private validateRange() {
+    return (this.selectedEndDate.getTime() - this.selectedStartDate.getTime()) < this.threeMonths;
   }
 
 }

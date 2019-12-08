@@ -36,17 +36,17 @@
     </ng-container>
     <ng-container matColumnDef="usage_count">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Usage </mat-header-cell>
-      <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions" > {{element.usage_count}} </mat-cell>
+      <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions" (click)="showMobileActions(element)"> {{element.usage_count}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="win_count">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Win </mat-header-cell>
-      <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions"> {{element.win_count}} </mat-cell>
+      <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions" (click)="showMobileActions(element)"> {{element.win_count}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="users_count">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Users </mat-header-cell>
-      <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions"> {{element.users_count}} </mat-cell>
+      <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions" (click)="showMobileActions(element)"> {{element.users_count}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="win_ratio">
@@ -78,7 +78,7 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" class="teams-row"></mat-row>
   </mat-table>
     <mat-paginator #paginator
                  [pageSize]="10"

@@ -143,10 +143,10 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   }
 
   showMobileActions(element: Team) {
-    element.show_actions = true;
     if (this.lastSelected) {
       this.lastSelected.show_actions = false;
     }
+    element.show_actions = true;
     this.lastSelected = element;
   }
 

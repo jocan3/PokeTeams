@@ -27,6 +27,10 @@ p {
 }
 
 .mat-card { display:inline-block}
+
+.teams-row:hover {
+  background: #d3c7ea;
+}
  
 @media only screen and (max-width: 500px) {
   .teams-search-input {

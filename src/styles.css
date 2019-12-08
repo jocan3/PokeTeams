@@ -845,6 +845,14 @@
     background-repeat: no-repeat;
     background-position: -353px -27px;
 }
+
+.sprite-xyicons.rotommow {
+    width: 24px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-position: -353px -27px;
+}
+
 .sprite-xyicons.cofagrigus {
     width: 30px;
     height: 25px;
@@ -1507,6 +1515,12 @@
     background-repeat: no-repeat;
     background-position: -92px -461px;
 }
+.sprite-xyicons.rotomfrost {
+    width: 30px;
+    height: 23px;
+    background-repeat: no-repeat;
+    background-position: -92px -461px;
+}
 .sprite-xyicons.staravia {
     width: 22px;
     height: 23px;
@@ -1951,6 +1965,12 @@
     background-repeat: no-repeat;
     background-position: -483px -231px;
 }
+.sprite-xyicons.rotomwash {
+    width: 28px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: -483px -231px;
+}
 .sprite-xyicons.prinplup {
     width: 17px;
     height: 22px;
@@ -1970,6 +1990,12 @@
     background-position: -325px -428px;
 }
 .sprite-xyicons.rotom-heat {
+    width: 29px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: -22px -537px;
+}
+.sprite-xyicons.rotomheat {
     width: 29px;
     height: 22px;
     background-repeat: no-repeat;
@@ -2487,6 +2513,12 @@
     background-position: -444px -392px;
 }
 .sprite-xyicons.darmanitan {
+    width: 23px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: -490px -333px;
+}
+.sprite-xyicons.darmanitangalar {
     width: 23px;
     height: 22px;
     background-repeat: no-repeat;
@@ -3507,6 +3539,12 @@
     background-position: -270px -636px;
 }
 .sprite-xyicons.corsola {
+    width: 21px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: -682px -116px;
+}
+.sprite-xyicons.corsola-galar {
     width: 21px;
     height: 20px;
     background-repeat: no-repeat;
@@ -5203,6 +5241,121 @@
     width: 30px;
     height: 30px;
 }
+
+.sprite-xyicons.grookey {background: url('assets/images/gen8/810.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.thwackey {background: url('assets/images/gen8/811.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.rillaboom {background: url('assets/images/gen8/812.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.scorbunny {background: url('assets/images/gen8/813.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.raboot {background: url('assets/images/gen8/814.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.cinderace {background: url('assets/images/gen8/815.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.sobble {background: url('assets/images/gen8/816.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.drizzile {background: url('assets/images/gen8/817.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.inteleon {background: url('assets/images/gen8/818.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.skwovet {background: url('assets/images/gen8/819.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.greedent {background: url('assets/images/gen8/820.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.rookidee {background: url('assets/images/gen8/821.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.corvisquire {background: url('assets/images/gen8/822.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.corviknight {background: url('assets/images/gen8/823.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.corviknightgmax {background: url('assets/images/gen8/823.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.blipbug {background: url('assets/images/gen8/824.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.dottler {background: url('assets/images/gen8/825.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.orbeetle {background: url('assets/images/gen8/826.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.orbeetlegmax {background: url('assets/images/gen8/826.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.nickit {background: url('assets/images/gen8/827.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.thievul {background: url('assets/images/gen8/828.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.gossifleur {background: url('assets/images/gen8/829.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.eldegoss {background: url('assets/images/gen8/830.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.wooloo {background: url('assets/images/gen8/831.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.dubwool {background: url('assets/images/gen8/832.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.chewtle {background: url('assets/images/gen8/833.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.drednaw {background: url('assets/images/gen8/834.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.drednawgmax {background: url('assets/images/gen8/834.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.yamper {background: url('assets/images/gen8/835.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.boltund {background: url('assets/images/gen8/836.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.rolycoly {background: url('assets/images/gen8/837.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.carkol {background: url('assets/images/gen8/838.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.coalossal {background: url('assets/images/gen8/839.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.coalossalgmax {background: url('assets/images/gen8/839.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.applin {background: url('assets/images/gen8/840.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.flapple {background: url('assets/images/gen8/841.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.flapplegmax {background: url('assets/images/gen8/841.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.appletun {background: url('assets/images/gen8/842.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.appletungmax {background: url('assets/images/gen8/842.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.silicobra {background: url('assets/images/gen8/843.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.sandaconda {background: url('assets/images/gen8/844.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.sandacondagmax {background: url('assets/images/gen8/844.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.cramorant {background: url('assets/images/gen8/845.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.cramorantgulping {background: url('assets/images/gen8/845.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.cramorantgorging {background: url('assets/images/gen8/845.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.arrokuda {background: url('assets/images/gen8/846.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.barraskewda {background: url('assets/images/gen8/847.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.toxel {background: url('assets/images/gen8/848.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.toxtricity {background: url('assets/images/gen8/849.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.toxtricitylowkey {background: url('assets/images/gen8/849.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.toxtricitygmax {background: url('assets/images/gen8/844.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.sizzlipede {background: url('assets/images/gen8/850.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.centiskorch {background: url('assets/images/gen8/851.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.centiskorchgmax {background: url('assets/images/gen8/851.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.clobbopus {background: url('assets/images/gen8/852.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.grapploct {background: url('assets/images/gen8/853.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.sinistea {background: url('assets/images/gen8/854.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.sinisteachipped {background: url('assets/images/gen8/854.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.polteageist {background: url('assets/images/gen8/855.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.polteageistchipped {background: url('assets/images/gen8/855.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.hatenna {background: url('assets/images/gen8/856.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.hattrem {background: url('assets/images/gen8/857.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.hatterene {background: url('assets/images/gen8/858.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.hatterenegmax {background: url('assets/images/gen8/858.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.impidimp {background: url('assets/images/gen8/859.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.morgrem {background: url('assets/images/gen8/860.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.grimmsnarl {background: url('assets/images/gen8/861.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.grimmsnarlgmax {background: url('assets/images/gen8/861.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.obstagoon {background: url('assets/images/gen8/862.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.perrserker {background: url('assets/images/gen8/863.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.cursola {background: url('assets/images/gen8/864.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.sirfetchd {background: url('assets/images/gen8/865.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.mrrime {background: url('assets/images/gen8/866.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.runerigus {background: url('assets/images/gen8/867.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.milcery {background: url('assets/images/gen8/868.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.alcremie {background: url('assets/images/gen8/869.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.alcremierubycream {background: url('assets/images/gen8/869.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.alcremiematcha {background: url('assets/images/gen8/869.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.alcremiemint {background: url('assets/images/gen8/869.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.alcremielemon {background: url('assets/images/gen8/869.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.alcremiesalted {background: url('assets/images/gen8/869.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.alcremierubyswirl {background: url('assets/images/gen8/869.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.alcremiecaramel {background: url('assets/images/gen8/869.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.alcremierainbow {background: url('assets/images/gen8/869.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.alcremiegmax {background: url('assets/images/gen8/869.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.falinks {background: url('assets/images/gen8/870.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.pincurchin {background: url('assets/images/gen8/871.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.snom {background: url('assets/images/gen8/872.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.frosmoth {background: url('assets/images/gen8/873.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.stonjourner {background: url('assets/images/gen8/874.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.eiscue {background: url('assets/images/gen8/875.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.eiscuenoice {background: url('assets/images/gen8/875.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.indeedee {background: url('assets/images/gen8/876.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.indeedeef {background: url('assets/images/gen8/876.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.indeedee-f {background: url('assets/images/gen8/876.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.morpeko {background: url('assets/images/gen8/877.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.morpekohangry {background: url('assets/images/gen8/877.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.cufant {background: url('assets/images/gen8/878.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.copperajah {background: url('assets/images/gen8/879.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.copperajahgmax {background: url('assets/images/gen8/879.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.dracozolt {background: url('assets/images/gen8/880.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.arctozolt {background: url('assets/images/gen8/881.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.dracovish {background: url('assets/images/gen8/882.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.arctovish {background: url('assets/images/gen8/883.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.duraludon {background: url('assets/images/gen8/884.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.duraludongmax {background: url('assets/images/gen8/884.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.dreepy {background: url('assets/images/gen8/885.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.drakloak {background: url('assets/images/gen8/886.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.dragapult {background: url('assets/images/gen8/887.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.zacian {background: url('assets/images/gen8/888.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.zaciancrowned {background: url('assets/images/gen8/888.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.zamazenta {background: url('assets/images/gen8/889.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.zamazentacrowned {background: url('assets/images/gen8/889.png') !important; width: 30px; height: 30px;}
+.sprite-xyicons.eternatus {background: url('assets/images/gen8/890.png') !important; width: 30px; height: 30px;}
 
 @media only screen and (max-width: 500px) {
     .sprite-xyicons {

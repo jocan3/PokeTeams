@@ -7,6 +7,7 @@ export class Team {
 	win_count: number;
 	battle_ids;
 	users: string[];
+	users_ratio: number;
 	usage_ratio: number;
 	win_ratio: number;
 	relevance: number;

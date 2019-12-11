@@ -15,7 +15,7 @@
 									<td class="col1-data">{{val2}}</td>
 									<td>
 									<mat-progress-bar mode="determinate" [value]="getPercentage(data.dataStats[col][val][val2], data.dataStats[col][val])"></mat-progress-bar>
-									 {{getPercentage(data.dataStats[col][val][val2], data.dataStats[col][val]) | number : '1.0-1'}}%
+									 {{getPercentage(data.dataStats[col][val][val2], data.dataStats[col][val]) | number : '1.0-1'}}% ({{data.dataStats[col][val][val2]}} out of {{getTotal(data.dataStats[col][val])}})
 									</td>
 								</tr>
 							</table>

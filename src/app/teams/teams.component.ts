@@ -291,9 +291,13 @@ export class DataDialog {
     return keys.sort((a,b) => object[b] - object[a]);
   }
 
-  getPercentage(value, object) {1
+  getPercentage(value, object) {
     let sum: number = Object.values(object).reduce((a: number,b: number)=> a + b) as number;
     return (value/sum)*100;
+  }
+
+  getTotal(object) {
+    return Object.values(object).reduce((a: number,b: number)=> a + b) as number;
   }
 
   isMobile(): boolean {

@@ -20,7 +20,7 @@ p {
 .results-header {
   line-height: 0.1cm;
   text-align: right;
-
+  margin-top: 50px;
   /* background-image: url("../../assets/images/Picture4.png");
   background-repeat: no-repeat;
   background-position-y: -90px; */
@@ -31,7 +31,28 @@ p {
 .teams-row:hover {
   background: #d3c7ea;
 }
- 
+
+#datasets-dropdown {
+  width: 25em;
+}
+
+#menu-bar {
+  background-color: #1A1D20;
+  color: #bbb!important;
+  position: fixed;
+  width: 100%;
+  top: 120px;
+  z-index: 100;
+}
+
+.mat-button:hover {
+  color: #BD155C !important;
+}
+
+.mat-progress-spinner {
+  margin: auto;
+}
+
 @media only screen and (max-width: 500px) {
   .teams-search-input {
     width: 90%;
@@ -41,5 +62,14 @@ p {
   }
   .desktop-column {
     display: none;
+  }
+
+  #menu-bar {
+    position: relative;
+    top: auto;
+  }
+
+  .results-header {
+    margin-top: auto;
   }
 }

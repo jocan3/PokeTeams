@@ -21,7 +21,5 @@ export class DashboardComponent implements OnInit {
     var endDate = new Date();
     var dayOfMonth = startDate.getDate();
     startDate.setDate(dayOfMonth - 1);
-    this.teamService.getTeams("", startDate.getTime(), endDate.getTime(), null)
-      .subscribe(teams => this.teams = teams.items.slice(0, 4));
   }
 }

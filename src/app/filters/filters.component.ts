@@ -27,7 +27,7 @@ export class FiltersComponent implements OnInit {
   constructor(private router: Router, private teamService:TeamService, private deviceService: DeviceDetectorService) { }
   
   ngOnInit() {
-    this.formatList = this.teamService.formatList;
+    this.formatList = this.teamService.datasets;
     this.selectedFormat = this.formatList.find( (format) => format.default == true).name;
     var dayOfMonth = this.selectedStartDate.getDate();
     this.selectedStartDate.setDate(dayOfMonth - 15);

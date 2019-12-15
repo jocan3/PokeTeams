@@ -1,0 +1,16 @@
+{
+    "datasets": [
+        {
+            "displayName" : "VGC 2020 (12/01/2019-12/15/2019)",
+            "name" : "vgc2020_120119-121519.json",
+            "default" : true,
+            "active" : true
+        },
+        {
+            "displayName" : "Battle Stadium Doubles (12/01/2019-12/15/2019)",
+            "name" : "battlestadiumdoubles_120119-121519.json",
+            "default" : false,
+            "active" : true
+        }
+    ]
+}

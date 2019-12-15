@@ -5,7 +5,7 @@
 				<mat-card class="data-stats-card">
 					<mat-card-header>
 					    <div mat-card-avatar [class]="col.replace(' ','') | lowercase" [class.sprite-xyicons]="col" class="example-header-image"></div>
-						<mat-card-title class="data-card-title"><h3>{{col}}</h3></mat-card-title>
+						<mat-card-title class="data-card-title"><h3 class="data-pokemon-name">{{col}}</h3></mat-card-title>
 					</mat-card-header>
 					<div class="data-stats-tile">
 						<div *ngFor="let val of getKeys(data.dataStats[col])">

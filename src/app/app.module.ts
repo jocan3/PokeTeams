@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule,  
   MatButtonModule, MatGridListModule, MatTableModule, MatProgressSpinnerModule, 
     MatPaginatorModule, MatSortModule, MatDialogModule, MatFormFieldModule, MatInputModule,
-      MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatRadioModule, MatCheckboxModule, MatCardModule, MatTabsModule, MatProgressBarModule} from '@angular/material';
+      MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatRadioModule, MatCheckboxModule, MatCardModule, MatTabsModule, MatProgressBarModule, MatMenuModule} from '@angular/material';
 import { FiltersComponent } from './filters/filters.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { LoginComponent } from './login/login.component';
@@ -32,7 +32,7 @@ import { ActionButtonComponent } from './action-button/action-button.component';
 export function init_app(teamService: TeamService, authService: AuthService) {
   return () => 
     forkJoin([
-    teamService.loadFormatList(),
+    teamService.loadDatasets(),
     authService.loadAuthenticationData()
   ]).toPromise(); 
 }
@@ -95,7 +95,8 @@ export function getAuthServiceConfigs() {
     DeviceDetectorModule.forRoot(),
     SocialLoginModule,
     MatIconModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatMenuModule
   ],
   providers: [
     TeamService,

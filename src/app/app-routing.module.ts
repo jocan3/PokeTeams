@@ -9,9 +9,7 @@ import { AuthGuardService as AuthGuard } from './auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/teams', pathMatch: 'full' },
-  { path: 'teams', component: TeamsComponent, canActivate: [AuthGuard]},
-  { path: 'login', component: LoginComponent },
-  { path: 'teams/:format/:startDate/:endDate/:ladderReport', component: TeamsComponent, canActivate: [AuthGuard]}
+  { path: 'teams', component: TeamsComponent},
   /* { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: TeamDetailComponent } */
 ];

@@ -8,6 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Format } from './format.model';
 import { AuthService } from './auth.service';
+declare var require: any
 
 @Injectable()
 export class TeamService {
@@ -18,25 +19,27 @@ export class TeamService {
 
 	private formatsURL = 'http://jocan3.com:3000/GetFormatList';
 
-	formatList: Format[] = [];
+	// formatList: Format[] = [];
+	datasets: any[];
 
 	constructor(private http: HttpClient, private auth: AuthService) { }
 
-	getTeams(format:string, startDate: number, endDate: number, ladderReport: boolean): Observable<TrendReport> { 
-		return this.http.get<TrendReport>(this.teamsUrl + 'format=' + format + '&email=' + this.auth.user.email + '&token=' + this.auth.user.idToken + '&startDate='+ startDate +'&endDate='+ endDate + (ladderReport ? "&ladderReport=true" : ""))
-		//	.pipe(
-		//      catchError(this.handleError<TrendReport>('getTeams'))
-		//    );
+	getTeams(dataset: string): Observable<TrendReport> { 
+		// var report = require('../../data/' + dataset);
+		// return of(report);
+		return this.http.get<TrendReport>('assets/data/' + dataset);
+
 	}
 
-	loadFormatList(): Promise<any> {
-		const promise = this.http.get<Format[]>(this.formatsURL)
+	loadDatasets(): Promise<any> {
+		const promise = this.http.get<any>('assets/data/datasets.json')
       .toPromise()
-      .then(formats => {
-				this.formatList = formats;
+      .then(datasets => {
+				this.datasets = datasets['datasets'];
       });
  
     return promise;
+
 	}
 
 	posts: Observable<any>;

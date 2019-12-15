@@ -1,26 +1,36 @@
 
-<mat-spinner style="margin:0 auto;" *ngIf="loading"></mat-spinner>
 <div *ngIf="errorMessage">
   <div>
     <p>{{errorMessage}}</p>
   </div>
 </div>
-<div [hidden]="loading || errorMessage">
-  <div class="results-header">
-    <p>source: <b>Pokemon Showdown replays</b></p> 
-    <p>format: <b>{{formatDisplayName}}</b></p>
-    <p>from <b>{{startDate}}</b> to <b>{{endDate}}</b></p>
+<div id="menu-bar">
+    <button mat-button onClick="location.href = 'http://www.trainertower.com/'">Home</button>
+    <button mat-button onClick="location.href = 'https://damagecalc.trainertower.com/'">Damage Calc</button>
+    <button mat-button onClick="location.href = 'https://results.trainertower.com/'">Results</button>
   </div>
+  <div class="results-header">
+    <p> <b> VGC Teams Replays </b> by <a href="https://www.twitter.com/jocan3mena" target="_blank">jocan3</a> </p>
+    <div>
+				<mat-form-field id="datasets-dropdown">
+						<mat-select [disabled]="loading" placeholder="Dataset" [(ngModel)]="selectedDataset" name="dataset" (selectionChange)="getTeams()">
+							<mat-option *ngFor="let dataset of datasets" [value]="dataset.name">
+								{{dataset.displayName}}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+		</div>
+  </div>
+  <div>
+    <mat-spinner *ngIf="loading"></mat-spinner>
+  </div>
+<div [hidden]="loading || errorMessage">
 <div class="table-container mat-elevation-z8">
 	<div class="teams-search-input-container">
-    <label id="search-by-radio-group-label">Search by: </label>
-    <mat-radio-group aria-label="Search by"  [(ngModel)]="searchBy">
-          <mat-radio-button value="pokemon" (click)="setPokemonFilterPredicate()">Pokemon</mat-radio-button> |
-          <mat-radio-button value="username" (click)="setUsernameFilterPredicate()">Username</mat-radio-button>
-    </mat-radio-group>
     <div>
     <mat-form-field class="teams-search-input">
-		  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Enter value(s)">
+        <mat-label>Search by Pokemon</mat-label>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Enter value(s)">
     </mat-form-field>
     </div>
 	</div>

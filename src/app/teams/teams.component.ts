@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, Inject, ChangeDetectorRef } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { Team } from '../team';
 import { TeamService } from '../team.service';
@@ -27,11 +27,15 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   username: string;
   showActionsMobile: boolean = false;
   lastSelected: Team;
+  datasets: any[];
+  selectedDataset: string;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private teamService: TeamService, public dialog: MatDialog, private route: ActivatedRoute, private deviceService: DeviceDetectorService) {
+  constructor(private teamService: TeamService, public dialog: MatDialog, 
+    private route: ActivatedRoute, private deviceService: DeviceDetectorService,
+    private changeDetectorRef: ChangeDetectorRef) {
   }
 
   applyFilter(filterValue: string) {
@@ -41,27 +45,8 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   }
 
   getTeams(): void {
-    let startDateStr = this.route.snapshot.paramMap.get('startDate');
-    let endDateStr = this.route.snapshot.paramMap.get('endDate');
-    let formatStr = this.route.snapshot.paramMap.get('format');
-    let ladderReport = this.route.snapshot.paramMap.get('ladderReport') == "true" ? true : false;
-    let startDate = new Date();
-    let endDate = new Date();
-    let dayOfMonth = startDate.getDate();
-    let format = this.teamService.formatList.find((format)=>format.default == true).name;
-    startDate.setDate(dayOfMonth - 15);
-    if (startDateStr && endDateStr && formatStr) {
-      startDate = new Date(0);
-      endDate = new Date(0);
-      startDate.setTime(Number(startDateStr)*1000);
-      endDate.setTime(Number(endDateStr)*1000);
-      format = formatStr;
-    }
-    this.formatDisplayName = this.teamService.formatList.find((f)=>f.name == format).displayName;
-    this.startDate = startDate.toLocaleDateString("en-US");
-    this.endDate = endDate.toLocaleDateString("en-US");
     this.loading = true;
-  	this.teamService.getTeams(format, Math.floor(startDate.getTime()/1000), Math.floor(endDate.getTime()/1000), ladderReport)
+  	this.teamService.getTeams(this.selectedDataset)
   			.subscribe(teams => {
           this.teams = teams.items;
           this.dataSource.data = this.teams;
@@ -241,9 +226,8 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params =>{
-      this.getTeams();
-    });
+    this.datasets = this.teamService.datasets;
+    this.selectedDataset = this.datasets.find( (dataset) => dataset.default == true).name;
     this.getTeams();
     this.setPokemonFilterPredicate();
   }

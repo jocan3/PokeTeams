@@ -30,7 +30,7 @@ export class FiltersComponent implements OnInit {
     this.formatList = this.teamService.formatList;
     this.selectedFormat = this.formatList.find( (format) => format.default == true).name;
     var dayOfMonth = this.selectedStartDate.getDate();
-    this.selectedStartDate.setDate(dayOfMonth - 15);
+    this.selectedStartDate.setDate(dayOfMonth - 7);
 
     let d = new Date();
     d.setMonth(d.getMonth() - 3);

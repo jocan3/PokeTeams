@@ -41,40 +41,42 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   }
 
   getTeams(): void {
-    let startDateStr = this.route.snapshot.paramMap.get('startDate');
-    let endDateStr = this.route.snapshot.paramMap.get('endDate');
-    let formatStr = this.route.snapshot.paramMap.get('format');
-    let ladderReport = this.route.snapshot.paramMap.get('ladderReport') == "true" ? true : false;
-    let startDate = new Date();
-    let endDate = new Date();
-    let dayOfMonth = startDate.getDate();
-    let format = this.teamService.formatList.find((format)=>format.default == true).name;
-    startDate.setDate(dayOfMonth - 15);
-    if (startDateStr && endDateStr && formatStr) {
-      startDate = new Date(0);
-      endDate = new Date(0);
-      startDate.setTime(Number(startDateStr)*1000);
-      endDate.setTime(Number(endDateStr)*1000);
-      format = formatStr;
+    if (!this.loading) {
+      let startDateStr = this.route.snapshot.paramMap.get('startDate');
+      let endDateStr = this.route.snapshot.paramMap.get('endDate');
+      let formatStr = this.route.snapshot.paramMap.get('format');
+      let ladderReport = this.route.snapshot.paramMap.get('ladderReport') == "true" ? true : false;
+      let startDate = new Date();
+      let endDate = new Date();
+      let dayOfMonth = startDate.getDate();
+      let format = this.teamService.formatList.find((format)=>format.default == true).name;
+      startDate.setDate(dayOfMonth - 7);
+      if (startDateStr && endDateStr && formatStr) {
+        startDate = new Date(0);
+        endDate = new Date(0);
+        startDate.setTime(Number(startDateStr)*1000);
+        endDate.setTime(Number(endDateStr)*1000);
+        format = formatStr;
+      }
+      this.formatDisplayName = this.teamService.formatList.find((f)=>f.name == format).displayName;
+      this.startDate = startDate.toLocaleDateString("en-US");
+      this.endDate = endDate.toLocaleDateString("en-US");
+      this.loading = true;
+      this.teamService.getTeams(format, Math.floor(startDate.getTime()/1000), Math.floor(endDate.getTime()/1000), ladderReport)
+          .subscribe(teams => {
+            this.teams = teams.items;
+            this.dataSource.data = this.teams;
+            this.loading = false;
+          },(error) => {
+            console.log(error);
+            this.loading = false;
+            if (error.status == 401) {
+              this.errorMessage = "You don't have access to see this page."
+            } else {
+              this.errorMessage = "There was an error getting the report. Please try again later."
+            }
+          });
     }
-    this.formatDisplayName = this.teamService.formatList.find((f)=>f.name == format).displayName;
-    this.startDate = startDate.toLocaleDateString("en-US");
-    this.endDate = endDate.toLocaleDateString("en-US");
-    this.loading = true;
-  	this.teamService.getTeams(format, Math.floor(startDate.getTime()/1000), Math.floor(endDate.getTime()/1000), ladderReport)
-  			.subscribe(teams => {
-          this.teams = teams.items;
-          this.dataSource.data = this.teams;
-          this.loading = false;
-        },(error) => {
-          console.log(error);
-          this.loading = false;
-          if (error.status == 401) {
-            this.errorMessage = "You don't have access to see this page."
-          } else {
-            this.errorMessage = "There was an error getting the report. Please try again later."
-          }
-        });
   }
 
   seeBattleIds(battle_ids_wins, battle_ids_losses): void {

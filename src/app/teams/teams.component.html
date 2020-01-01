@@ -1,5 +1,9 @@
-
-<mat-spinner style="margin:0 auto;" *ngIf="loading"></mat-spinner>
+<div *ngIf="loading">
+  <mat-spinner style="margin:0 auto;"></mat-spinner>
+  <div class="loading-report-text">
+    Loading report. It can take several minutes ...
+  </div>
+</div>
 <div *ngIf="errorMessage">
   <div>
     <p>{{errorMessage}}</p>

@@ -53,6 +53,12 @@ p {
   margin: auto;
 }
 
+.loading-report-text {
+  margin-top: 1em;
+  text-align: center;
+  color: #673AB7;
+}
+
 @media only screen and (max-width: 500px) {
   .teams-search-input {
     width: 90%;

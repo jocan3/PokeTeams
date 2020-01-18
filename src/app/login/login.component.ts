@@ -66,8 +66,19 @@ export class LoginComponent implements OnInit {
   this.socialAuthService.signIn(socialPlatformProvider).then(
     (userData) => {
       // console.log(socialPlatform+" sign in data : " , userData);
-      this.authService.user = userData;
-      this.router.navigate([this.returnUrl]);
+
+      this.authService.getAuthorized(userData).subscribe(
+        (result) => {
+          console.log(result)
+          if (result['authorized']) {
+            this.authService.user = userData;
+            this.router.navigate([this.returnUrl]);
+          } else {
+            this.router.navigate(['login']);
+          }
+        }
+      );
+
       // Now sign-in with userData
     }
   );

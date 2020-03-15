@@ -48,14 +48,6 @@
       </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="summary">
-      <mat-header-cell *matHeaderCellDef> Summary </mat-header-cell>
-      <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions" (click)="showMobileActions(element)">
-        <p>Team has been used in <b>{{element.usage_count}}</b> replays by <b>{{element.users_count}}</b> different users.</p>
-        <p><b>Win ratio:</b> {{element.win_ratio | number : '1.4' }}</p>
-      </mat-cell>
-    </ng-container>
-
     <ng-container matColumnDef="usage_count">
       <mat-header-cell *matHeaderCellDef mat-sort-header class="desktop-column"> Usage </mat-header-cell>
       <mat-cell *matCellDef="let element" class="desktop-column"> {{element.usage_count}} </mat-cell>
@@ -85,6 +77,14 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header class="desktop-column"> Relevance </mat-header-cell>
       <mat-cell *matCellDef="let element" class="desktop-column"> {{ element.relevance | number : '1.4'}} </mat-cell>
     </ng-container>
+    
+    <ng-container matColumnDef="summary">
+        <mat-header-cell *matHeaderCellDef> Summary </mat-header-cell>
+        <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions" (click)="showMobileActions(element)">
+          <p>Team has been used in <b>{{element.usage_count}}</b> replays by <b>{{element.users_count}}</b> different users.</p>
+          <p><b>Win ratio:</b> {{element.win_ratio | number : '1.4' }}</p>
+        </mat-cell>
+      </ng-container>
 
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef class="desktop-column"> Actions </mat-header-cell>

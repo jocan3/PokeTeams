@@ -10,7 +10,7 @@
     <button mat-button onClick="location.href = 'https://results.trainertower.com/'">Results</button>
   </div>
   <div class="results-header">
-    <p> <b> VGC Teams Replays </b> by <a href="https://www.twitter.com/jocan3mena" target="_blank">jocan3</a> </p>
+    <p> <b> VGC Teams Replays </b> by <a href="https://www.twitter.com/jocan3mena" target="_blank">jocan3mena</a> </p>
     <div>
 				<mat-form-field id="datasets-dropdown">
 						<mat-select [disabled]="loading" placeholder="Dataset" [(ngModel)]="selectedDataset" name="dataset" (selectionChange)="getTeams()">
@@ -47,19 +47,28 @@
 		</mat-grid-list>
       </mat-cell>
     </ng-container>
+
+    <ng-container matColumnDef="summary">
+      <mat-header-cell *matHeaderCellDef> Summary </mat-header-cell>
+      <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions" (click)="showMobileActions(element)">
+        <p>Team has been used in <b>{{element.usage_count}}</b> replays by <b>{{element.users_count}}</b> different users.</p>
+        <p><b>Win ratio:</b> {{element.win_ratio | number : '1.4' }}</p>
+      </mat-cell>
+    </ng-container>
+
     <ng-container matColumnDef="usage_count">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Usage </mat-header-cell>
-      <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions" (click)="showMobileActions(element)"> {{element.usage_count}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="desktop-column"> Usage </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="desktop-column"> {{element.usage_count}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="win_count">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Win </mat-header-cell>
-      <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions" (click)="showMobileActions(element)"> {{element.win_count}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="desktop-column"> Win </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="desktop-column"> {{element.win_count}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="users_count">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Users </mat-header-cell>
-      <mat-cell *matCellDef="let element" [class.desktop-column]="element.show_actions" (click)="showMobileActions(element)"> {{element.users_count}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="desktop-column"> Users </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="desktop-column"> {{element.users_count}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="win_ratio">
@@ -70,11 +79,6 @@
       <ng-container matColumnDef="usage_ratio">
           <mat-header-cell *matHeaderCellDef mat-sort-header class="desktop-column"> Usage Ratio </mat-header-cell>
           <mat-cell *matCellDef="let element" class="desktop-column"> {{ element.usage_ratio | number : '1.4' }} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="ladder_rank">
-          <mat-header-cell *matHeaderCellDef mat-sort-header class="desktop-column"> Ladder rank </mat-header-cell>
-          <mat-cell *matCellDef="let element" class="desktop-column"> {{ element.ladder_rank }} </mat-cell>
       </ng-container>
 
     <ng-container matColumnDef="relevance">

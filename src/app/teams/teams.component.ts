@@ -16,7 +16,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 export class TeamsComponent implements OnInit, AfterViewInit {
 
   teams: Team[];
-  displayedColumns = ['team', 'usage_count', 'win_count', 'users_count', 'usage_ratio', 'win_ratio', 'ladder_rank','relevance','actions'];
+  displayedColumns = ['team', 'summary', 'usage_count', 'win_count', 'users_count', 'usage_ratio', 'win_ratio','relevance','actions'];
   dataSource = new MatTableDataSource<Team>();
   startDate : string;
   endDate: string;

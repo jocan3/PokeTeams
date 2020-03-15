@@ -1,14 +1,34 @@
 {
     "datasets": [
         {
-            "displayName" : "VGC 2020 (12/01/2019-12/15/2019)",
-            "name" : "vgc2020_120119-121519.json",
+            "displayName" : "VGC 2020 (Feb 16 to Feb 29, 2020)",
+            "name" : "vgc2020_021520-022920.json",
             "default" : true,
+            "active" : true
+        },{
+            "displayName" : "VGC 2020 (Feb 01 to Feb 15, 2020)",
+            "name" : "vgc2020_020120-021520.json",
+            "default" : false,
+            "active" : true
+        },{
+            "displayName" : "VGC 2020 (Jan 16 to Jan 31, 2020)",
+            "name" : "vgc2020_011620-013120.json",
+            "default" : false,
+            "active" : true
+        },{
+            "displayName" : "VGC 2020 (Jan 01 to Jan 15, 2020)",
+            "name" : "vgc2020_010120-011520.json",
+            "default" : false,
+            "active" : true
+        },{
+            "displayName" : "VGC 2020 (Dec 16 to Dec 31, 2019)",
+            "name" : "vgc2020_121619-123119.json",
+            "default" : false,
             "active" : true
         },
         {
-            "displayName" : "Battle Stadium Doubles (12/01/2019-12/15/2019)",
-            "name" : "battlestadiumdoubles_120119-121519.json",
+            "displayName" : "VGC 2020 (Dec 01 to Dec 15, 2019)",
+            "name" : "vgc2020_120119-121519.json",
             "default" : false,
             "active" : true
         }

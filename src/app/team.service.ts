@@ -13,6 +13,8 @@ import { AuthService } from './auth.service';
 export class TeamService {
 	
 	private teamsUrl = 'http://jocan3.com:3000/GetPokemonSDTeamTrendReport?';  // URL to web api
+	private teamsCurrentUrl = 'http://jocan3.com:3000/GetPokemonSDTeamTrendReportCurrent?';  // URL to web api
+
 	// private teamsUrl = 'https://wm6zl46tuf.execute-api.us-east-1.amazonaws.com/prod/GetPokemonSDTeamTrendReport?format=gen7vgc2018';  // URL to web api
 	private teamsUrl2 = 'https://jsonplaceholder.typicode.com/users';
 
@@ -24,6 +26,13 @@ export class TeamService {
 
 	getTeams(format:string, startDate: number, endDate: number, ladderReport: boolean): Observable<TrendReport> { 
 		return this.http.get<TrendReport>(this.teamsUrl + 'format=' + format + '&email=' + this.auth.user.email + '&token=' + this.auth.user.idToken + '&startDate='+ startDate +'&endDate='+ endDate + (ladderReport ? "&ladderReport=true" : ""))
+		//	.pipe(
+		//      catchError(this.handleError<TrendReport>('getTeams'))
+		//    );
+	}
+
+	getTeamsCurrent(ladderReport: boolean): Observable<TrendReport> { 
+		return this.http.get<TrendReport>(this.teamsCurrentUrl + 'email=' + this.auth.user.email + '&token=' + this.auth.user.idToken + (ladderReport ? "&ladderReport=true" : ""))
 		//	.pipe(
 		//      catchError(this.handleError<TrendReport>('getTeams'))
 		//    );

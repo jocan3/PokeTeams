@@ -40,6 +40,35 @@ export class TeamsComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue;
   }
 
+  getTeamsCurrent(): void {
+    if (!this.loading) {
+      let ladderReport = this.route.snapshot.paramMap.get('ladderReport') == "true" ? true : false;
+      let startDate = new Date();
+      let endDate = new Date();
+      let dayOfMonth = startDate.getDate();
+      let format = this.teamService.formatList.find((format)=>format.default == true).name;
+      startDate.setDate(dayOfMonth - 7);
+      this.formatDisplayName = this.teamService.formatList.find((f)=>f.name == format).displayName;
+      this.startDate = startDate.toLocaleDateString("en-US");
+      this.endDate = endDate.toLocaleDateString("en-US");
+      this.loading = true;
+      this.teamService.getTeamsCurrent( ladderReport)
+          .subscribe(teams => {
+            this.teams = teams.items;
+            this.dataSource.data = this.teams;
+            this.loading = false;
+          },(error) => {
+            console.log(error);
+            this.loading = false;
+            if (error.status == 401) {
+              this.errorMessage = "You don't have access to see this page."
+            } else {
+              this.errorMessage = "There was an error getting the report. Please try again later."
+            }
+          });
+    }
+  }
+
   getTeams(): void {
     if (!this.loading) {
       let startDateStr = this.route.snapshot.paramMap.get('startDate');
@@ -243,11 +272,13 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    if (!this.route.snapshot.paramMap.get('startDate')) {
+      this.getTeamsCurrent();
+    }
+    this.setPokemonFilterPredicate();
     this.route.paramMap.subscribe(params =>{
       this.getTeams();
     });
-    this.getTeams();
-    this.setPokemonFilterPredicate();
   }
 
 };

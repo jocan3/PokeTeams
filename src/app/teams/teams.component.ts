@@ -8,6 +8,8 @@ import { of } from 'rxjs/observable/of';
 import { Route, ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
+declare let gtag: Function; // Declare ga (google analytics) as a function
+
 @Component({
   selector: 'app-teams',
   templateUrl: './teams.component.html',
@@ -62,7 +64,21 @@ export class TeamsComponent implements OnInit, AfterViewInit {
         });
   }
 
-  seeBattleIds(battle_ids_wins, battle_ids_losses): void {
+  onDatasetSelectionChange() {
+    gtag('event', 'change_selected_dataset', {
+      'event_category' : 'report_interaction',
+      'event_label' : this.selectedDataset
+    });
+    this.getTeams();
+  }
+
+  seeBattleIds(battle_ids_wins, battle_ids_losses, team): void {
+
+    gtag('event', 'click_replays_button', {
+      'event_category' : 'report_interaction',
+      'event_label' : team
+    });
+
     let filteredBattleIdsLosses = battle_ids_losses;
     let filteredBattleIdsWins = battle_ids_wins;
     if (this.searchBy == "username") {
@@ -75,7 +91,13 @@ export class TeamsComponent implements OnInit, AfterViewInit {
     });
   }
   
-  seeData(data, lead): void {
+  seeData(data, lead, team): void {
+
+    gtag('event', 'click_data_button', {
+      'event_category' : 'report_interaction',
+      'event_label' : team
+    });
+
     if (data) {
       var dataStats = {};
       var columns = [];
@@ -215,6 +237,19 @@ export class TeamsComponent implements OnInit, AfterViewInit {
     }
   }
 
+  searchInputFocusout() {
+    gtag('event', 'focusout_search_input', {
+      'event_category' : 'report_interaction',
+      'event_label' : this.dataSource.filter
+    });
+  }
+
+  searchInputFocus() {
+    gtag('event', 'focus_search_input', {
+      'event_category' : 'report_interaction'
+    });
+  }
+
   isMobile(): boolean {
     var deviceInfo = this.deviceService.getDeviceInfo();
     return deviceInfo.device =='android' || deviceInfo.device == 'iphone';
@@ -246,6 +281,13 @@ export class BattleIdsDialog {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  seeBattleReplay(battleId: string) {
+    gtag('event', 'click_battle_replay_external_link', {
+      'event_category' : 'report_interaction',
+      'event_label' : battleId
+    });
   }
 
 };

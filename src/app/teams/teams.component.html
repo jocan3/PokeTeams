@@ -13,7 +13,7 @@
     <p> <b> VGC Teams Replays </b> by <a href="https://www.twitter.com/jocan3mena" target="_blank">jocan3mena</a> </p>
     <div>
 				<mat-form-field id="datasets-dropdown">
-						<mat-select [disabled]="loading" placeholder="Dataset" [(ngModel)]="selectedDataset" name="dataset" (selectionChange)="getTeams()">
+						<mat-select [disabled]="loading" placeholder="Dataset" [(ngModel)]="selectedDataset" name="dataset" (selectionChange)="onDatasetSelectionChange()">
 							<mat-option *ngFor="let dataset of datasets" [value]="dataset.name">
 								{{dataset.displayName}}
 							</mat-option>
@@ -33,7 +33,7 @@
     <div>
     <mat-form-field class="teams-search-input">
         <mat-label>Search by Pokemon</mat-label>
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Enter value(s)">
+        <input matInput (focus)="searchInputFocus()" (focusout)="searchInputFocusout()" (keyup)="applyFilter($event.target.value)" placeholder="Enter value(s)">
     </mat-form-field>
     </div>
 	</div>
@@ -89,8 +89,8 @@
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef class="desktop-column"> Actions </mat-header-cell>
       <mat-cell [class.desktop-column]="!element.show_actions" *matCellDef="let element">
-          <app-action-button icon="play_circle_filled" label="replays" (onClick)="seeBattleIds(element.battle_ids_wins, element.battle_ids_losses)"></app-action-button>
-          <app-action-button icon="bar_chart" label="data" (onClick)="seeData(element.data, element.lead)"></app-action-button>
+          <app-action-button icon="play_circle_filled" label="replays" (onClick)="seeBattleIds(element.battle_ids_wins, element.battle_ids_losses, element.team)"></app-action-button>
+          <app-action-button icon="bar_chart" label="data" (onClick)="seeData(element.data, element.lead, element.team)"></app-action-button>
       </mat-cell>
     </ng-container>
 

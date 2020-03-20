@@ -3,8 +3,10 @@
 		<mat-tab-group>
 				<mat-tab label="Wins">
 						<mat-nav-list>
-								<a mat-list-item *ngFor="let battle_id of data.battle_ids_wins" href="https://replay.pokemonshowdown.com/{{battle_id.battle_id}}" target="_blank"><img height="20" width="20" src="assets/images/ps.ico" alt="ps"> {{ battle_id.battle_id }} <mat-icon>launch</mat-icon></a>
-						 </mat-nav-list>
+								<span (click)="seeBattleReplay(battle_id.battle_id)" *ngFor="let battle_id of data.battle_ids_wins">
+									<a mat-list-item href="https://replay.pokemonshowdown.com/{{battle_id.battle_id}}" target="_blank"><img height="20" width="20" src="assets/images/ps.ico" alt="ps"> {{ battle_id.battle_id }} <mat-icon>launch</mat-icon></a>
+								</span>
+							</mat-nav-list>
 				</mat-tab>
 				<mat-tab label="Losses">
 						<mat-nav-list>

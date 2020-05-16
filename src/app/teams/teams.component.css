@@ -67,6 +67,16 @@ p {
 .about-button {
   width: 100%;
   text-align: right;
+  color: #673ab7;
+}
+
+.notify-button {
+  width: 100%;
+  text-align: left !important;
+}
+
+.email-input {
+  width: 100% !important;
 }
 
 @media only screen and (max-width: 500px) {

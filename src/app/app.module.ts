@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 import { AppComponent } from './app.component';
-import { TeamsComponent, DataDialog } from './teams/teams.component';
+import { TeamsComponent, DataDialog, EmailSubscribeDialog } from './teams/teams.component';
 import { BattleIdsDialog } from './teams/teams.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { TeamService } from './team.service';
@@ -58,6 +58,7 @@ export function getAuthServiceConfigs() {
     DashboardComponent,
     BattleIdsDialog,
     DataDialog,
+    EmailSubscribeDialog,
     FiltersComponent,
     LoginComponent,
     ActionButtonComponent,
@@ -65,7 +66,8 @@ export function getAuthServiceConfigs() {
   ],
   entryComponents: [
     BattleIdsDialog,
-    DataDialog
+    DataDialog,
+    EmailSubscribeDialog
   ],
   imports: [
     BrowserModule,
@@ -98,7 +100,8 @@ export function getAuthServiceConfigs() {
     SocialLoginModule,
     MatIconModule,
     MatProgressBarModule,
-    MatMenuModule
+    MatMenuModule,
+    ReactiveFormsModule
   ],
   providers: [
     TeamService,

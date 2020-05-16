@@ -8,6 +8,7 @@ import { of } from 'rxjs/observable/of';
 import { Route, ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
+import { FormControl, Validators } from '@angular/forms';
 
 declare let gtag: Function; // Declare ga (google analytics) as a function
 
@@ -106,6 +107,17 @@ export class TeamsComponent implements OnInit, AfterViewInit {
     let dialogRef = this.dialog.open(BattleIdsDialog, {
       width: '30em',
       data: { battle_ids_wins: filteredBattleIdsWins, battle_ids_losses: filteredBattleIdsLosses }
+    });
+  }
+
+  seeEmailSubscribeDialog(): void {
+
+    gtag('event', 'click_get_notifications_button', {
+      'event_category' : 'report_interaction'
+    });
+
+    let dialogRef = this.dialog.open(EmailSubscribeDialog, {
+      width: '30em'
     });
   }
   
@@ -283,6 +295,41 @@ export class TeamsComponent implements OnInit, AfterViewInit {
     this.selectedDataset = this.datasets.find( (dataset) => dataset.default == true).name;
     this.getTeams();
     this.setPokemonFilterPredicate();
+  }
+
+};
+
+@Component({
+  selector: 'email-subscribe-dialog',
+  templateUrl: 'email-subscribe-dialog.html',
+})
+export class EmailSubscribeDialog {
+
+  email: any;
+  saving: boolean = false;
+  message: string = null;
+
+  constructor(
+    public dialogRef: MatDialogRef<EmailSubscribeDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public service: TeamService) { 
+      this.email = new FormControl('', [Validators.required, Validators.email]);
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  subscribeEmail() {
+    this.saving = true;
+    this.service.subscribeEmail(this.email.value).subscribe(
+      (result) => {
+        this.message = "Thanks. Please check your email and verify/confirm your account.";
+      },
+      (error) => {
+        this.message = "An error occurred while saving your email. Please try again later."
+      }
+    )
   }
 
 };

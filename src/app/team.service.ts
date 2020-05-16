@@ -29,6 +29,10 @@ export class TeamService {
 		return this.http.get<string>('assets/data/help.htm', { headers, responseType: 'text' as 'json'});
 	}
 
+	subscribeEmail(email: string): Observable<any> {
+		return this.http.get<string>('https://vm0ct6oig1.execute-api.us-east-2.amazonaws.com/default/SubscribeEmailToTopic?email=' + email);
+	}
+
 	getTeams(dataset: string): Observable<TrendReport> { 
 		// var report = require('../../data/' + dataset);
 		// return of(report);

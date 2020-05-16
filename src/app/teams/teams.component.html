@@ -10,10 +10,21 @@
     <button mat-button onClick="location.href = 'https://results.trainertower.com/'">Results</button>
   </div>
   <div class="results-header">
-      <span class="about-button">
           <p> <b> VGC Teams Replays </b> by <a href="https://www.twitter.com/jocan3mena" target="_blank">jocan3mena</a> </p>
-          <button mat-flat-button color="primary" onClick="location.href = 'http://jocan3.com/#/help'">About this tool &gt;</button>
-      </span>
+
+      <mat-grid-list cols="2" rowHeight="4em">
+        <mat-grid-tile>
+          <span class="notify-button">
+              <button mat-button color="primary" (click)="seeEmailSubscribeDialog()"><mat-icon>email</mat-icon>Get Notifications!</button>
+          </span>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <span class="about-button">
+            <a mat-button href="http://jocan3.com/#/help">See more<mat-icon>arrow_forward_ios</mat-icon></a>
+            <!--button mat-flat-button color="primary" onClick="location.href = 'http://jocan3.com/#/help'">About this tool &gt;</button-->
+        </span>
+        </mat-grid-tile>
+      </mat-grid-list>
     <div>
 				<mat-form-field id="datasets-dropdown">
 						<mat-select [disabled]="loading" placeholder="Dataset" [(ngModel)]="selectedDataset" name="dataset" (selectionChange)="onDatasetSelectionChange()">

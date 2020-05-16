@@ -24,6 +24,11 @@ export class TeamService {
 
 	constructor(private http: HttpClient, private auth: AuthService) { }
 
+	getHelp(): Observable<string> {
+		const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
+		return this.http.get<string>('assets/data/help.htm', { headers, responseType: 'text' as 'json'});
+	}
+
 	getTeams(dataset: string): Observable<TrendReport> { 
 		// var report = require('../../data/' + dataset);
 		// return of(report);
@@ -32,7 +37,18 @@ export class TeamService {
 	}
 
 	loadDatasets(): Promise<any> {
-		const promise = this.http.get<any>('assets/data/datasets.json')
+
+		const headerDict = {
+			'Cache-Control':  'no-cache, no-store, must-revalidate, post-check=0, pre-check=0',
+			'Pragma': 'no-cache',
+			'Expires': '0'
+		}
+		
+		const requestOptions = {                                                                                                                                                                                 
+			headers: new HttpHeaders(headerDict), 
+		};
+
+		const promise = this.http.get<any>('assets/data/datasets.json', requestOptions)
       .toPromise()
       .then(datasets => {
 				this.datasets = datasets['datasets'];

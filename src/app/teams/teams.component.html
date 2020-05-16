@@ -10,7 +10,10 @@
     <button mat-button onClick="location.href = 'https://results.trainertower.com/'">Results</button>
   </div>
   <div class="results-header">
-    <p> <b> VGC Teams Replays </b> by <a href="https://www.twitter.com/jocan3mena" target="_blank">jocan3mena</a> </p>
+      <span class="about-button">
+          <p> <b> VGC Teams Replays </b> by <a href="https://www.twitter.com/jocan3mena" target="_blank">jocan3mena</a> </p>
+          <button mat-flat-button color="primary" onClick="location.href = 'http://jocan3.com/#/help'">About this tool &gt;</button>
+      </span>
     <div>
 				<mat-form-field id="datasets-dropdown">
 						<mat-select [disabled]="loading" placeholder="Dataset" [(ngModel)]="selectedDataset" name="dataset" (selectionChange)="onDatasetSelectionChange()">
@@ -36,7 +39,10 @@
         <input matInput (focus)="searchInputFocus()" (focusout)="searchInputFocusout()" (keyup)="applyFilter($event.target.value)" placeholder="Enter value(s)">
     </mat-form-field>
     </div>
-	</div>
+  </div>
+  <div class="table-buttons desktop-column">
+      <button mat-stroked-button color="primary" (click)="exportCsv()">Export CSV</button>
+  </div>
   <mat-table #table [dataSource]="dataSource" matSort matSortActive="relevance" matSortDirection="desc">
     <!-- Position Column -->
     <ng-container matColumnDef="team">

@@ -17,6 +17,11 @@ p {
   text-align: center;
 }
 
+.table-buttons {
+  text-align: right;
+  margin: 0.5em;
+}
+
 .results-header {
   line-height: 0.1cm;
   text-align: right;
@@ -57,6 +62,11 @@ p {
   margin-top: 1em;
   text-align: center;
   color: #673AB7;
+}
+
+.about-button {
+  width: 100%;
+  text-align: right;
 }
 
 @media only screen and (max-width: 500px) {

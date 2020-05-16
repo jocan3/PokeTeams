@@ -6,7 +6,7 @@ export class Team {
 	usage_count: number;
 	win_count: number;
 	battle_ids;
-	users: string[];
+	users_count: string[];
 	users_ratio: number;
 	usage_ratio: number;
 	win_ratio: number;

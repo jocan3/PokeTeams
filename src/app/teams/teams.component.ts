@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { Route, ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
 
 declare let gtag: Function; // Declare ga (google analytics) as a function
 
@@ -31,13 +32,30 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   lastSelected: Team;
   datasets: any[];
   selectedDataset: string;
+  renderedData: any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private teamService: TeamService, public dialog: MatDialog, 
     private route: ActivatedRoute, private deviceService: DeviceDetectorService,
-    private changeDetectorRef: ChangeDetectorRef) {
+    private changeDetectorRef: ChangeDetectorRef) {}
+
+  exportCsv(){
+    let dataToExport = this.dataSource.data.map((value)=> {
+      return {
+        "team" : value.team,
+        "usage_count" : value.usage_count,
+        "usage_ratio" : value.usage_ratio,
+        "users_count" : value.users_count,
+        "users_ratio" : value.users_ratio,
+        "win_count" : value.win_count,
+        "win_ratio" : value.win_ratio,
+        "relevance" : value.relevance
+      }
+    });
+    new Angular5Csv(dataToExport,'vgcteams_' + new Date().getTime(),
+    {headers: ["team", "usage_count", "usage_ratio", "users_count", "users_ratio", "win_count", "win_ratio", "relevance"]});
   }
 
   applyFilter(filterValue: string) {

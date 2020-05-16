@@ -28,6 +28,7 @@ import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { forkJoin } from 'rxjs/observable/forkJoin';
 import { ActionButtonComponent } from './action-button/action-button.component';
+import { HelpComponent } from './help/help.component';
 
 export function init_app(teamService: TeamService, authService: AuthService) {
   return () => 
@@ -59,7 +60,8 @@ export function getAuthServiceConfigs() {
     DataDialog,
     FiltersComponent,
     LoginComponent,
-    ActionButtonComponent
+    ActionButtonComponent,
+    HelpComponent
   ],
   entryComponents: [
     BattleIdsDialog,

@@ -6,10 +6,12 @@ import { TeamDetailComponent }  from './team-detail/team-detail.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
+import { HelpComponent } from './help/help.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/teams', pathMatch: 'full' },
   { path: 'teams', component: TeamsComponent},
+  { path: 'help', component: HelpComponent},
   /* { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: TeamDetailComponent } */
 ];

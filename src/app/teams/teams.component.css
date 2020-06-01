@@ -79,6 +79,20 @@ p {
   width: 100% !important;
 }
 
+#email-form-container {
+  padding: 1em;
+  margin: 1em auto;
+  width: 300px;
+  background-color: white;
+  border: solid;
+  border-color: #D3C7EA;
+}
+
+#save-email-message {
+  font: bold;
+  font-size: 15px;
+}
+
 @media only screen and (max-width: 500px) {
   .teams-search-input {
     width: 90%;

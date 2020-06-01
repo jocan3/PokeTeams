@@ -35,6 +35,10 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   selectedDataset: string;
   renderedData: any;
 
+  email: any;
+  saveEmailMessage: string = null;
+  savingEmail: boolean = false;
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -108,6 +112,20 @@ export class TeamsComponent implements OnInit, AfterViewInit {
       width: '30em',
       data: { battle_ids_wins: filteredBattleIdsWins, battle_ids_losses: filteredBattleIdsLosses }
     });
+  }
+
+  subscribeEmail() {
+    this.savingEmail = true;
+    this.teamService.subscribeEmail(this.email.value).subscribe(
+      (result) => {
+        this.savingEmail = false;
+        this.saveEmailMessage = "Thanks. Please check your email and verify/confirm your account.";
+      },
+      (error) => {
+        this.savingEmail = false;
+        this.saveEmailMessage = "An error occurred while saving your email. Please try again later."
+      }
+    )
   }
 
   seeEmailSubscribeDialog(): void {
@@ -291,6 +309,7 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.email = new FormControl('', [Validators.required, Validators.email]);
     this.datasets = this.teamService.datasets;
     this.selectedDataset = this.datasets.find( (dataset) => dataset.default == true).name;
     this.getTeams();

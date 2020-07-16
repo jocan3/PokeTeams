@@ -14,12 +14,6 @@
 
       <mat-grid-list cols="2" rowHeight="4em">
         <mat-grid-tile>
-          <span style="background-color: black; color: white; width: 100%; text-align: center !important">
-              <a mat-button href="https://twitter.com/hashtag/BlackLivesMatter?src=hashtag_click">#BlackLivesMatter</a> <button mat-flat-button color="primary" onClick="window.open('https://blacklivesmatters.carrd.co/', '_blank')">How can you help?</button>
-          </span>
-          <!--span class="notify-button">
-              <button mat-button color="primary" (click)="seeEmailSubscribeDialog()"><mat-icon>email</mat-icon>Get Notifications!</button>
-          </span-->
         </mat-grid-tile>
         <mat-grid-tile>
           <span class="about-button">
@@ -29,6 +23,7 @@
         </mat-grid-tile>
       </mat-grid-list>
     <div>
+        <tweet text="Check out VGC Teams Replays! New usage report for {{newestDataset}} @TrainerTower" ></tweet>
 				<mat-form-field id="datasets-dropdown">
 						<mat-select [disabled]="loading" placeholder="Dataset" [(ngModel)]="selectedDataset" name="dataset" (selectionChange)="onDatasetSelectionChange()">
 							<mat-option *ngFor="let dataset of datasets" [value]="dataset.name">

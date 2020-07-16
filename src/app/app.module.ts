@@ -29,6 +29,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { forkJoin } from 'rxjs/observable/forkJoin';
 import { ActionButtonComponent } from './action-button/action-button.component';
 import { HelpComponent } from './help/help.component';
+import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
 
 export function init_app(teamService: TeamService, authService: AuthService) {
   return () => 
@@ -101,7 +102,8 @@ export function getAuthServiceConfigs() {
     MatIconModule,
     MatProgressBarModule,
     MatMenuModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    JwSocialButtonsModule
   ],
   providers: [
     TeamService,

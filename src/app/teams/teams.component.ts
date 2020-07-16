@@ -33,6 +33,7 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   lastSelected: Team;
   datasets: any[];
   selectedDataset: string;
+  newestDataset: string;
   renderedData: any;
 
   email: any;
@@ -312,6 +313,7 @@ export class TeamsComponent implements OnInit, AfterViewInit {
     this.email = new FormControl('', [Validators.required, Validators.email]);
     this.datasets = this.teamService.datasets;
     this.selectedDataset = this.datasets.find( (dataset) => dataset.default == true).name;
+    this.newestDataset = this.datasets.find( (dataset) => dataset.default == true).displayName;
     this.getTeams();
     this.setPokemonFilterPredicate();
   }

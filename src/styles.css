@@ -1381,6 +1381,15 @@ body {
 .sprite-xyicons.pokestarblackbeltprop {background:transparent url(assets/images/smicons2.png) no-repeat scroll --400px --12540px;width:30px;height:30px;}
 .sprite-xyicons.pokestarufopropu2 {background:transparent url(assets/images/smicons2.png) no-repeat scroll --360px --12510px;width:30px;height:30px;}
 
+.sprite-xyicons.urshifurapidstrike {background:transparent url(assets/images/892.png) no-repeat scroll;width:30px;height:30px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.urshifu {background:transparent url(assets/images/892.png) no-repeat scroll;width:30px;height:30px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.urshifurapidstrike {background:transparent url(assets/images/892.png) no-repeat scroll;width:30px;height:30px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.urshifurapid-strike {background:transparent url(assets/images/892.png) no-repeat scroll;width:30px;height:30px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.urshifusingle-strike {background:transparent url(assets/images/892.png) no-repeat scroll;width:30px;height:30px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.kubfu {background:transparent url(assets/images/891.png) no-repeat scroll;width:30px;height:30px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.slowbrogalar {background:transparent url(assets/images/080-g.png) no-repeat scroll;width:30px;height:30px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.slowpokegalar {background:transparent url(assets/images/079-g.png) no-repeat scroll;width:30px;height:30px;margin-left: 1.5em;zoom: 80%;}
+
 @media only screen and (max-width: 500px) {
     .sprite-xyicons {
         display: inline-block;

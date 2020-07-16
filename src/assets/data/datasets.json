@@ -1,9 +1,49 @@
 {
     "datasets": [
-        {
+		{
+            "displayName" : "VGC 2020 (Jun 16 to Jun 23, 2020)",
+            "name" : "vgc2020_061620-062320.json",
+            "default" : true,
+            "active" : true
+        },{
+            "displayName" : "VGC 2020 (Jun 01 to Jun 15, 2020)",
+            "name" : "vgc2020_060120-061520.json",
+            "default" : false,
+            "active" : true
+        },{
+            "displayName" : "VGC 2020 (May 16 to May 31, 2020)",
+            "name" : "vgc2020_051620-053120.json",
+            "default" : false,
+            "active" : true
+        },{
+            "displayName" : "VGC 2020 (May 1 to May 15, 2020)",
+            "name" : "vgc2020_050120-051520.json",
+            "default" : false,
+            "active" : true
+        },{
+            "displayName" : "VGC 2020 (Apr 16 to Apr 30, 2020)",
+            "name" : "vgc2020_041620-043020.json",
+            "default" : false,
+            "active" : true
+        },{
+            "displayName" : "VGC 2020 (Apr 01 to Apr 15, 2020)",
+            "name" : "vgc2020_040120-041520.json",
+            "default" : false,
+            "active" : true
+        },{
+            "displayName" : "VGC 2020 (Mar 16 to Mar 31, 2020)",
+            "name" : "vgc2020_031520-033120.json",
+            "default" : false,
+            "active" : true
+        },{
+            "displayName" : "VGC 2020 (Mar 01 to Mar 15, 2020)",
+            "name" : "vgc2020_030120-031520.json",
+            "default" : false,
+            "active" : true
+        },{
             "displayName" : "VGC 2020 (Feb 16 to Feb 29, 2020)",
             "name" : "vgc2020_021520-022920.json",
-            "default" : true,
+            "default" : false,
             "active" : true
         },{
             "displayName" : "VGC 2020 (Feb 01 to Feb 15, 2020)",

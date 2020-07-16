@@ -63,7 +63,7 @@
       <mat-header-cell *matHeaderCellDef class="teams-sprites-column"> Team </mat-header-cell>
       <mat-cell *matCellDef="let element" class="teams-sprites-column"> 
 		<mat-grid-list cols="3" (click)="showMobileActions(element)">
-		  <mat-grid-tile *ngFor="let pokemon of element.pokemon_ids"><span [class]="pokemon.replace(' ','').replace('.','').replace('-','') | lowercase" [class.sprite-xyicons]="pokemon"></span></mat-grid-tile>
+		  <mat-grid-tile *ngFor="let pokemon of element.pokemon_ids"><span [class]="pokemon.replace(' ','').replace('.','').replace('-','').replace('*','') | lowercase" [class.sprite-xyicons]="pokemon"></span></mat-grid-tile>
 		</mat-grid-list>
       </mat-cell>
     </ng-container>

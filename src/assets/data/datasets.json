@@ -1,9 +1,14 @@
 {
     "datasets": [
 		{
+            "displayName" : "VGC 2020 (Oct 25 to Oct 31, 2020)",
+            "name" : "vgc2021_102520-103120.json",
+            "default" : true,
+            "active" : true
+        },{
             "displayName" : "VGC 2020 (Jun 16 to Jun 23, 2020)",
             "name" : "vgc2020_061620-062320.json",
-            "default" : true,
+            "default" : false,
             "active" : true
         },{
             "displayName" : "VGC 2020 (Jun 01 to Jun 15, 2020)",

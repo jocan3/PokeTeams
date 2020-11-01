@@ -1390,6 +1390,20 @@ body {
 .sprite-xyicons.slowbrogalar {background:transparent url(assets/images/080-g.png) no-repeat scroll;width:30px;height:30px;margin-left: 1.5em;zoom: 80%;}
 .sprite-xyicons.slowpokegalar {background:transparent url(assets/images/079-g.png) no-repeat scroll;width:30px;height:30px;margin-left: 1.5em;zoom: 80%;}
 
+.sprite-xyicons.glastrier {background:transparent url(assets/images/896.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.spectrier {background:transparent url(assets/images/897.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.regidrago {background:transparent url(assets/images/895.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.regieleki {background:transparent url(assets/images/894.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.zapdosgalar  {background:transparent url(assets/images/145-g.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.articunogalar  {background:transparent url(assets/images/144-g.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.moltresgalar  {background:transparent url(assets/images/146-g.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
+
+.sprite-xyicons.zapdos-galar  {background:transparent url(assets/images/145-g.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.articuno-galar  {background:transparent url(assets/images/144-g.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.moltres-galar  {background:transparent url(assets/images/146-g.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
+
+
+
 @media only screen and (max-width: 500px) {
     .sprite-xyicons {
         display: inline-block;

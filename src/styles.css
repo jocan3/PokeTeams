@@ -1164,7 +1164,9 @@ body {
 .sprite-xyicons.guzzlord {background:transparent url(assets/images/smicons2.png) no-repeat scroll -280px -1980px;width:30px;height:30px;}
 .sprite-xyicons.necrozma {background:transparent url(assets/images/smicons2.png) no-repeat scroll -320px -1980px;width:30px;height:30px;}
 .sprite-xyicons.necrozmaduskmane {background:transparent url(assets/images/smicons2.png) no-repeat scroll -200px -2640px;width:30px;height:30px;}
+.sprite-xyicons.necrozmadusk-mane {background:transparent url(assets/images/smicons2.png) no-repeat scroll -200px -2640px;width:30px;height:30px;}
 .sprite-xyicons.necrozmadawnwings {background:transparent url(assets/images/smicons2.png) no-repeat scroll -240px -2640px;width:30px;height:30px;}
+.sprite-xyicons.necrozmadawn-wings {background:transparent url(assets/images/smicons2.png) no-repeat scroll -240px -2640px;width:30px;height:30px;}
 .sprite-xyicons.necrozmaultra {background:transparent url(assets/images/smicons2.png) no-repeat scroll -280px -2640px;width:30px;height:30px;}
 .sprite-xyicons.magearna {background:transparent url(assets/images/smicons2.png) no-repeat scroll -360px -1980px;width:30px;height:30px;}
 .sprite-xyicons.magearnaoriginal {background:transparent url(assets/images/smicons2.png) no-repeat scroll -320px -2610px;width:30px;height:30px;}
@@ -1398,11 +1400,16 @@ body {
 .sprite-xyicons.articunogalar  {background:transparent url(assets/images/144-g.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
 .sprite-xyicons.moltresgalar  {background:transparent url(assets/images/146-g.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
 
+.sprite-xyicons.calyrex  {background:transparent url(assets/images/898.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
+.sprite-xyicons.calyrexice {background:transparent url(assets/images/898-i.png) no-repeat scroll;width:40px;height:40px;margin-left: 1.5em;zoom: 70%;}
+.sprite-xyicons.calyrexshadow  {background:transparent url(assets/images/898-s.png) no-repeat scroll;width:40px;height:40px;margin-left: 1.5em;zoom: 70%;}
+
 .sprite-xyicons.zapdos-galar  {background:transparent url(assets/images/145-g.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
 .sprite-xyicons.articuno-galar  {background:transparent url(assets/images/144-g.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
 .sprite-xyicons.moltres-galar  {background:transparent url(assets/images/146-g.png) no-repeat scroll;width:35px;height:35px;margin-left: 1.5em;zoom: 80%;}
 
-
+.sprite-xyicons.calyrex-ice {background:transparent url(assets/images/898-i.png) no-repeat scroll;width:40px;height:40px;margin-left: 1.5em;zoom: 70%;}
+.sprite-xyicons.calyrex-shadow  {background:transparent url(assets/images/898-s.png) no-repeat scroll;width:40px;height:40px;margin-left: 1.5em;zoom: 70%;}
 
 @media only screen and (max-width: 500px) {
     .sprite-xyicons {
